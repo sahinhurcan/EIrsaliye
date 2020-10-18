@@ -1,0 +1,89 @@
+C:\Users\kuakin\source\repos\EFaturaTest\EFaturaTest\bin\Debug\EFaturaTest.exe.config
+C:\Users\kuakin\source\repos\EFaturaTest\EFaturaTest\bin\Debug\EFaturaTest.exe
+C:\Users\kuakin\source\repos\EFaturaTest\EFaturaTest\bin\Debug\EFaturaTest.pdb
+C:\Users\kuakin\source\repos\EFaturaTest\EFaturaTest\obj\Debug\EFaturaTest.csprojAssemblyReference.cache
+C:\Users\kuakin\source\repos\EFaturaTest\EFaturaTest\obj\Debug\EFaturaTest.EFatura.resources
+C:\Users\kuakin\source\repos\EFaturaTest\EFaturaTest\obj\Debug\EFaturaTest.Properties.Resources.resources
+C:\Users\kuakin\source\repos\EFaturaTest\EFaturaTest\obj\Debug\EFaturaTest.csproj.GenerateResource.cache
+C:\Users\kuakin\source\repos\EFaturaTest\EFaturaTest\obj\Debug\EFaturaTest.csproj.CoreCompileInputs.cache
+C:\Users\kuakin\source\repos\EFaturaTest\EFaturaTest\obj\Debug\EFaturaTest.exe
+C:\Users\kuakin\source\repos\EFaturaTest\EFaturaTest\obj\Debug\EFaturaTest.pdb
+C:\Users\kuakin\source\repos\EFaturaTest\EFaturaTest\bin\Debug\Newtonsoft.Json.dll
+C:\Users\kuakin\source\repos\EFaturaTest\EFaturaTest\bin\Debug\Newtonsoft.Json.xml
+C:\Users\kuakin\source\repos\EFaturaTest\EFaturaTest\obj\Debug\EFaturaTest.csproj.CopyComplete
+C:\Users\tunlu\Desktop\EFaturaTest\EFaturaTest\EFaturaTest\bin\Debug\EFaturaTest.exe.config
+C:\Users\tunlu\Desktop\EFaturaTest\EFaturaTest\EFaturaTest\bin\Debug\EFaturaTest.exe
+C:\Users\tunlu\Desktop\EFaturaTest\EFaturaTest\EFaturaTest\bin\Debug\EFaturaTest.pdb
+C:\Users\tunlu\Desktop\EFaturaTest\EFaturaTest\EFaturaTest\bin\Debug\Newtonsoft.Json.dll
+C:\Users\tunlu\Desktop\EFaturaTest\EFaturaTest\EFaturaTest\bin\Debug\Newtonsoft.Json.xml
+C:\Users\tunlu\Desktop\EFaturaTest\EFaturaTest\EFaturaTest\obj\Debug\EFaturaTest.csprojAssemblyReference.cache
+C:\Users\tunlu\Desktop\EFaturaTest\EFaturaTest\EFaturaTest\obj\Debug\EFaturaTest.EFatura.resources
+C:\Users\tunlu\Desktop\EFaturaTest\EFaturaTest\EFaturaTest\obj\Debug\EFaturaTest.Properties.Resources.resources
+C:\Users\tunlu\Desktop\EFaturaTest\EFaturaTest\EFaturaTest\obj\Debug\EFaturaTest.csproj.GenerateResource.cache
+C:\Users\tunlu\Desktop\EFaturaTest\EFaturaTest\EFaturaTest\obj\Debug\EFaturaTest.csproj.CoreCompileInputs.cache
+C:\Users\tunlu\Desktop\EFaturaTest\EFaturaTest\EFaturaTest\obj\Debug\EFaturaTest.csproj.CopyComplete
+C:\Users\tunlu\Desktop\EFaturaTest\EFaturaTest\EFaturaTest\obj\Debug\EFaturaTest.exe
+C:\Users\tunlu\Desktop\EFaturaTest\EFaturaTest\EFaturaTest\obj\Debug\EFaturaTest.pdb
+C:\Users\ilhan\Desktop\EFaturaTest\EFaturaTest\bin\Debug\EFaturaTest.exe.config
+C:\Users\ilhan\Desktop\EFaturaTest\EFaturaTest\obj\Debug\EFaturaTest.exe
+C:\Users\ilhan\Desktop\EFaturaTest\EFaturaTest\obj\Debug\EFaturaTest.pdb
+C:\Users\ilhan\Desktop\EFaturaTest\EFaturaTest\bin\Debug\EFaturaTest.exe
+C:\Users\ilhan\Desktop\EFaturaTest\EFaturaTest\bin\Debug\EFaturaTest.pdb
+C:\Users\ilhan\Desktop\EFaturaTest\EFaturaTest\bin\Debug\Newtonsoft.Json.dll
+C:\Users\ilhan\Desktop\EFaturaTest\EFaturaTest\bin\Debug\Newtonsoft.Json.xml
+C:\Users\ilhan\Desktop\EFaturaTest\EFaturaTest\obj\Debug\EFaturaTest.csprojResolveAssemblyReference.cache
+C:\Users\ilhan\Desktop\EFaturaTest\EFaturaTest\obj\Debug\EFaturaTest.EFatura.resources
+C:\Users\ilhan\Desktop\EFaturaTest\EFaturaTest\obj\Debug\EFaturaTest.Properties.Resources.resources
+C:\Users\ilhan\Desktop\EFaturaTest\EFaturaTest\obj\Debug\EFaturaTest.csproj.GenerateResource.Cache
+C:\Users\ilhan\Desktop\EFaturaTest\EFaturaTest\obj\Debug\EFaturaTest.EIrsaliyeGonderim.resources
+C:\Users\Toprak\Desktop\IrsaliyeProje\EFaturaTest\EFaturaTest\bin\Debug\EFaturaTest.exe.config
+C:\Users\Toprak\Desktop\IrsaliyeProje\EFaturaTest\EFaturaTest\bin\Debug\EFaturaTest.exe
+C:\Users\Toprak\Desktop\IrsaliyeProje\EFaturaTest\EFaturaTest\bin\Debug\EFaturaTest.pdb
+C:\Users\Toprak\Desktop\IrsaliyeProje\EFaturaTest\EFaturaTest\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Toprak\Desktop\IrsaliyeProje\EFaturaTest\EFaturaTest\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Toprak\Desktop\IrsaliyeProje\EFaturaTest\EFaturaTest\obj\Debug\EFaturaTest.csprojAssemblyReference.cache
+C:\Users\Toprak\Desktop\IrsaliyeProje\EFaturaTest\EFaturaTest\obj\Debug\EFaturaTest.EIrsaliyeGonderim.resources
+C:\Users\Toprak\Desktop\IrsaliyeProje\EFaturaTest\EFaturaTest\obj\Debug\EFaturaTest.EFatura.resources
+C:\Users\Toprak\Desktop\IrsaliyeProje\EFaturaTest\EFaturaTest\obj\Debug\EFaturaTest.Properties.Resources.resources
+C:\Users\Toprak\Desktop\IrsaliyeProje\EFaturaTest\EFaturaTest\obj\Debug\EFaturaTest.csproj.GenerateResource.cache
+C:\Users\Toprak\Desktop\IrsaliyeProje\EFaturaTest\EFaturaTest\obj\Debug\EFaturaTest.csproj.CoreCompileInputs.cache
+C:\Users\Toprak\Desktop\IrsaliyeProje\EFaturaTest\EFaturaTest\obj\Debug\EFaturaTest.csproj.CopyComplete
+C:\Users\Toprak\Desktop\IrsaliyeProje\EFaturaTest\EFaturaTest\obj\Debug\EFaturaTest.exe
+C:\Users\Toprak\Desktop\IrsaliyeProje\EFaturaTest\EFaturaTest\obj\Debug\EFaturaTest.pdb
+C:\Users\ilhan\Desktop\Yeni klasör (3)\EFaturaTest\EFaturaTest\bin\Debug\EFaturaTest.exe.config
+C:\Users\ilhan\Desktop\Yeni klasör (3)\EFaturaTest\EFaturaTest\obj\Debug\EFaturaTest.exe
+C:\Users\ilhan\Desktop\Yeni klasör (3)\EFaturaTest\EFaturaTest\obj\Debug\EFaturaTest.pdb
+C:\Users\ilhan\Desktop\Yeni klasör (3)\EFaturaTest\EFaturaTest\bin\Debug\EFaturaTest.exe
+C:\Users\ilhan\Desktop\Yeni klasör (3)\EFaturaTest\EFaturaTest\bin\Debug\EFaturaTest.pdb
+C:\Users\ilhan\Desktop\Yeni klasör (3)\EFaturaTest\EFaturaTest\bin\Debug\Newtonsoft.Json.dll
+C:\Users\ilhan\Desktop\Yeni klasör (3)\EFaturaTest\EFaturaTest\bin\Debug\Newtonsoft.Json.xml
+C:\Users\ilhan\Desktop\Yeni klasör (3)\EFaturaTest\EFaturaTest\obj\Debug\EFaturaTest.csprojResolveAssemblyReference.cache
+C:\Users\ilhan\Desktop\Yeni klasör (3)\EFaturaTest\EFaturaTest\obj\Debug\EFaturaTest.EIrsaliyeGonderim.resources
+C:\Users\ilhan\Desktop\Yeni klasör (3)\EFaturaTest\EFaturaTest\obj\Debug\EFaturaTest.Properties.Resources.resources
+C:\Users\ilhan\Desktop\Yeni klasör (3)\EFaturaTest\EFaturaTest\obj\Debug\EFaturaTest.csproj.GenerateResource.Cache
+C:\Users\Toprak\Desktop\IrsaliyeProje\EIrsaliye\EFaturaTest\bin\Debug\EFaturaTest.exe.config
+C:\Users\Toprak\Desktop\IrsaliyeProje\EIrsaliye\EFaturaTest\bin\Debug\EFaturaTest.exe
+C:\Users\Toprak\Desktop\IrsaliyeProje\EIrsaliye\EFaturaTest\bin\Debug\EFaturaTest.pdb
+C:\Users\Toprak\Desktop\IrsaliyeProje\EIrsaliye\EFaturaTest\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Toprak\Desktop\IrsaliyeProje\EIrsaliye\EFaturaTest\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Toprak\Desktop\IrsaliyeProje\EIrsaliye\EFaturaTest\obj\Debug\EFaturaTest.csprojAssemblyReference.cache
+C:\Users\Toprak\Desktop\IrsaliyeProje\EIrsaliye\EFaturaTest\obj\Debug\EFaturaTest.EIrsaliyeGonderim.resources
+C:\Users\Toprak\Desktop\IrsaliyeProje\EIrsaliye\EFaturaTest\obj\Debug\EFaturaTest.Properties.Resources.resources
+C:\Users\Toprak\Desktop\IrsaliyeProje\EIrsaliye\EFaturaTest\obj\Debug\EFaturaTest.csproj.GenerateResource.cache
+C:\Users\Toprak\Desktop\IrsaliyeProje\EIrsaliye\EFaturaTest\obj\Debug\EFaturaTest.csproj.CoreCompileInputs.cache
+C:\Users\Toprak\Desktop\IrsaliyeProje\EIrsaliye\EFaturaTest\obj\Debug\EFaturaTest.csproj.CopyComplete
+C:\Users\Toprak\Desktop\IrsaliyeProje\EIrsaliye\EFaturaTest\obj\Debug\EFaturaTest.exe
+C:\Users\Toprak\Desktop\IrsaliyeProje\EIrsaliye\EFaturaTest\obj\Debug\EFaturaTest.pdb
+D:\ŞAHİN YEDEK\ÖNEMLİİ\PROJELER-ONEMLI\IrsaliyeProje\EIrsaliye\EFaturaTest\bin\Debug\EFaturaTest.exe.config
+D:\ŞAHİN YEDEK\ÖNEMLİİ\PROJELER-ONEMLI\IrsaliyeProje\EIrsaliye\EFaturaTest\obj\Debug\EFaturaTest.exe
+D:\ŞAHİN YEDEK\ÖNEMLİİ\PROJELER-ONEMLI\IrsaliyeProje\EIrsaliye\EFaturaTest\obj\Debug\EFaturaTest.pdb
+D:\ŞAHİN YEDEK\ÖNEMLİİ\PROJELER-ONEMLI\IrsaliyeProje\EIrsaliye\EFaturaTest\bin\Debug\EFaturaTest.exe
+D:\ŞAHİN YEDEK\ÖNEMLİİ\PROJELER-ONEMLI\IrsaliyeProje\EIrsaliye\EFaturaTest\bin\Debug\EFaturaTest.pdb
+D:\ŞAHİN YEDEK\ÖNEMLİİ\PROJELER-ONEMLI\IrsaliyeProje\EIrsaliye\EFaturaTest\bin\Debug\Newtonsoft.Json.dll
+D:\ŞAHİN YEDEK\ÖNEMLİİ\PROJELER-ONEMLI\IrsaliyeProje\EIrsaliye\EFaturaTest\bin\Debug\Newtonsoft.Json.xml
+D:\ŞAHİN YEDEK\ÖNEMLİİ\PROJELER-ONEMLI\IrsaliyeProje\EIrsaliye\EFaturaTest\obj\Debug\EFaturaTest.EIrsaliyeGonderim.resources
+D:\ŞAHİN YEDEK\ÖNEMLİİ\PROJELER-ONEMLI\IrsaliyeProje\EIrsaliye\EFaturaTest\obj\Debug\EFaturaTest.Properties.Resources.resources
+D:\ŞAHİN YEDEK\ÖNEMLİİ\PROJELER-ONEMLI\IrsaliyeProje\EIrsaliye\EFaturaTest\obj\Debug\EFaturaTest.csproj.GenerateResource.Cache
+D:\ŞAHİN YEDEK\ÖNEMLİİ\PROJELER-ONEMLI\IrsaliyeProje\EIrsaliye\EFaturaTest\obj\Debug\EFaturaTest.csprojAssemblyReference.cache
+D:\ŞAHİN YEDEK\ÖNEMLİİ\PROJELER-ONEMLI\IrsaliyeProje\EIrsaliye\EFaturaTest\obj\Debug\EFaturaTest.csproj.CoreCompileInputs.cache
+D:\ŞAHİN YEDEK\ÖNEMLİİ\PROJELER-ONEMLI\IrsaliyeProje\EIrsaliye\EFaturaTest\obj\Debug\EFaturaTest.csproj.CopyComplete

@@ -1,0 +1,2591 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="EIrsaliyeClientInterfaceService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_IEIrsaliyeClientInterfaceService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.SendDespatchAdvices" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.GetDespatchAdvices" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.GetDespatchCustomers" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.DespatchCustomerInquiry" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.SendReceiptAdvice" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.DespatchAdviceInquiry" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.ReceiptAdviceInquiry" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.DownloadDespatch" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.GetDespatchAdviceRaw" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.GetReceiptAdvicesRaw" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.GetReceiptAdvices" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.DoReconciliation" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.GetReconciliationDespatchDetail" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.ReconciliationInquiry" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.PreviewDespatchAdvices" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.PreviewReceiptAdvices" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.PreviewDespatcAdvicesRaw" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.PreviewReceiptAdviceRaw" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.ApproveDraft" />
+      <xs:element name="Ping">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="PingResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SendDespatchAdvices">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.SendDespatchAdvices" minOccurs="0" name="request" nillable="true" type="q1:SendDespatchAdvicesRequest" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SendDespatchAdvicesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.SendDespatchAdvices" minOccurs="0" name="SendDespatchAdvicesResult" nillable="true" type="q2:SendDespatchAdvicesResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDespatchAdvices">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.GetDespatchAdvices" minOccurs="0" name="request" nillable="true" type="q3:GetDespatchAdvicesRequest" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDespatchAdvicesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.GetDespatchAdvices" minOccurs="0" name="GetDespatchAdvicesResult" nillable="true" type="q4:GetDepatchAdvicesResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDespatchCustomers">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.GetDespatchCustomers" minOccurs="0" name="request" nillable="true" type="q5:GetDespatchCustomersRequest" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDespatchCustomersResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.GetDespatchCustomers" minOccurs="0" name="GetDespatchCustomersResult" nillable="true" type="q6:GetDespatchCustomersResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DespatchCustomerInquiry">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.DespatchCustomerInquiry" minOccurs="0" name="request" nillable="true" type="q7:DespatchCustomerInquiryRequest" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DespatchCustomerInquiryResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.DespatchCustomerInquiry" minOccurs="0" name="DespatchCustomerInquiryResult" nillable="true" type="q8:DespatchCustomerInquiryResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SendReceiptAdvice">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.SendReceiptAdvice" minOccurs="0" name="request" nillable="true" type="q9:SendReceiptAdviceRequest" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SendReceiptAdviceResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.SendReceiptAdvice" minOccurs="0" name="SendReceiptAdviceResult" nillable="true" type="q10:SendReceiptAdviceResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SendReceiptAdvices">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.SendReceiptAdvice" minOccurs="0" name="request" nillable="true" type="q11:SendReceiptAdviceRequest" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SendReceiptAdvicesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.SendReceiptAdvice" minOccurs="0" name="SendReceiptAdvicesResult" nillable="true" type="q12:SendReceiptAdviceResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DespatchAdviceInquiry">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.DespatchAdviceInquiry" minOccurs="0" name="request" nillable="true" type="q13:DespatchAdviceInquiryRequest" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DespatchAdviceInquiryResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.DespatchAdviceInquiry" minOccurs="0" name="DespatchAdviceInquiryResult" nillable="true" type="q14:DespatchAdviceInquiryResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ReceiptAdviceInquiry">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.ReceiptAdviceInquiry" minOccurs="0" name="request" nillable="true" type="q15:ReceiptAdviceInquiryRequest" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ReceiptAdviceInquiryResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.ReceiptAdviceInquiry" minOccurs="0" name="ReceiptAdviceInquiryResult" nillable="true" type="q16:ReceiptAdviceInquiryResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DownloadDespatchReceipt">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.DownloadDespatch" minOccurs="0" name="request" nillable="true" type="q17:DownloadDespatchReceiptRequest" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DownloadDespatchReceiptResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.DownloadDespatch" minOccurs="0" name="DownloadDespatchReceiptResult" nillable="true" type="q18:DownloadDespatchReceiptResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDespatchAdviceRaw">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.GetDespatchAdviceRaw" minOccurs="0" name="request" nillable="true" type="q19:GetDespatchAdviceRawRequest" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDespatchAdviceRawResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.GetDespatchAdviceRaw" minOccurs="0" name="GetDespatchAdviceRawResult" nillable="true" type="q20:GetDespatchAdviceRawResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDespatchAdvicesRaw">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.GetDespatchAdviceRaw" minOccurs="0" name="request" nillable="true" type="q21:GetDespatchAdviceRawRequest" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDespatchAdvicesRawResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.GetDespatchAdviceRaw" minOccurs="0" name="GetDespatchAdvicesRawResult" nillable="true" type="q22:GetDespatchAdviceRawResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetReceiptAdviceRaw">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.GetReceiptAdvicesRaw" minOccurs="0" name="request" nillable="true" type="q23:GetReceiptAdviceRawRequest" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetReceiptAdviceRawResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.GetReceiptAdvicesRaw" minOccurs="0" name="GetReceiptAdviceRawResult" nillable="true" type="q24:GetReceiptAdviceRawResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetReceiptAdvicesRaw">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.GetReceiptAdvicesRaw" minOccurs="0" name="request" nillable="true" type="q25:GetReceiptAdviceRawRequest" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetReceiptAdvicesRawResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.GetReceiptAdvicesRaw" minOccurs="0" name="GetReceiptAdvicesRawResult" nillable="true" type="q26:GetReceiptAdviceRawResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetReceiptAdvice">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.GetReceiptAdvices" minOccurs="0" name="request" nillable="true" type="q27:GetReceiptAdvicesRequest" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetReceiptAdviceResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.GetReceiptAdvices" minOccurs="0" name="GetReceiptAdviceResult" nillable="true" type="q28:GetReceiptAdviceResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetReceiptAdvices">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.GetReceiptAdvices" minOccurs="0" name="request" nillable="true" type="q29:GetReceiptAdvicesRequest" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetReceiptAdvicesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.GetReceiptAdvices" minOccurs="0" name="GetReceiptAdvicesResult" nillable="true" type="q30:GetReceiptAdviceResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DoReconciliationDespatch">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.DoReconciliation" minOccurs="0" name="request" nillable="true" type="q31:DoReconciliationRequest" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DoReconciliationDespatchResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.DoReconciliation" minOccurs="0" name="DoReconciliationDespatchResult" nillable="true" type="q32:DoReconciliationResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetReconciliationDespatchDetail">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.GetReconciliationDespatchDetail" minOccurs="0" name="request" nillable="true" type="q33:GetReconciliationDespatchDetailRequest" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetReconciliationDespatchDetailResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.GetReconciliationDespatchDetail" minOccurs="0" name="GetReconciliationDespatchDetailResult" nillable="true" type="q34:GetReconciliationDespatchDetailResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ReconciliationDespatchInquiry">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.ReconciliationInquiry" minOccurs="0" name="request" nillable="true" type="q35:ReconciliationInquiryRequest" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ReconciliationDespatchInquiryResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.ReconciliationInquiry" minOccurs="0" name="ReconciliationDespatchInquiryResult" nillable="true" type="q36:ReconciliationInquiryResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="PreviewDespatchAdvices">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.PreviewDespatchAdvices" minOccurs="0" name="request" nillable="true" type="q37:PreviewDespatchAdvicesRequest" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="PreviewDespatchAdvicesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.PreviewDespatchAdvices" minOccurs="0" name="PreviewDespatchAdvicesResult" nillable="true" type="q38:PreviewDespatchAdvicesResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="PreviewReceiptAdvices">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.PreviewReceiptAdvices" minOccurs="0" name="request" nillable="true" type="q39:PreviewReceiptAdvicesRequest" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="PreviewReceiptAdvicesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.PreviewReceiptAdvices" minOccurs="0" name="PreviewReceiptAdvicesResult" nillable="true" type="q40:PreviewReceiptAdvicesResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="PreviewDespatchAdviceRaw">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.PreviewDespatcAdvicesRaw" minOccurs="0" name="request" nillable="true" type="q41:PreviewDespatchAdviceRawRequest" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="PreviewDespatchAdviceRawResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.PreviewDespatcAdvicesRaw" minOccurs="0" name="PreviewDespatchAdviceRawResult" nillable="true" type="q42:PreviewDespatchAdivesRawResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="PreviewReceiptAdviceRaw">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.PreviewReceiptAdviceRaw" minOccurs="0" name="request" nillable="true" type="q43:PreviewReceiptAdviceRawRequest" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="PreviewReceiptAdviceRawResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.PreviewReceiptAdviceRaw" minOccurs="0" name="PreviewReceiptAdviceRawResult" nillable="true" type="q44:PreviewReceiptAdviceRawResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ApproveDraftDespatchAdvice">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.ApproveDraft" minOccurs="0" name="request" nillable="true" type="q45:ApproveDraftRequest" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ApproveDraftDespatchAdviceResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.ApproveDraft" minOccurs="0" name="ApproveDraftDespatchAdviceResult" nillable="true" type="q46:ApproveDraftResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ApproveDraftReceiptAdvice">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.ApproveDraft" minOccurs="0" name="request" nillable="true" type="q47:ApproveDraftRequest" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ApproveDraftReceiptAdviceResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.ApproveDraft" minOccurs="0" name="ApproveDraftReceiptAdviceResult" nillable="true" type="q48:ApproveDraftResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.SendDespatchAdvices" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.SendDespatchAdvices" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.E.ClientInterface.Contract.DTO.Shared" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.Shared" />
+      <xs:complexType name="SendDespatchAdvicesRequest">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" base="q1:RequestBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="AcceptanceDateTime" type="xs:dateTime" />
+              <xs:element minOccurs="0" name="DespatchAdvices" nillable="true" type="tns:ArrayOfOutgoingDespatchAdvices" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="SendDespatchAdvicesRequest" nillable="true" type="tns:SendDespatchAdvicesRequest" />
+      <xs:complexType name="ArrayOfOutgoingDespatchAdvices">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="OutgoingDespatchAdvices" nillable="true" type="tns:OutgoingDespatchAdvices" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfOutgoingDespatchAdvices" nillable="true" type="tns:ArrayOfOutgoingDespatchAdvices" />
+      <xs:complexType name="OutgoingDespatchAdvices">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/PayFlex.E.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="Body" nillable="true" type="q2:DespatchAdviceBody" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="Header" nillable="true" type="q3:OutgoingDespatchAdviceHeader" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="OutgoingDespatchAdvices" nillable="true" type="tns:OutgoingDespatchAdvices" />
+      <xs:complexType name="SendDespatchAdvicesResponse">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" base="q4:ResponseBase">
+            <xs:sequence>
+              <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="Items" nillable="true" type="q5:ArrayOfDespatchAdviceResultItem" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="SendDespatchAdvicesResponse" nillable="true" type="tns:SendDespatchAdvicesResponse" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Header" nillable="true" type="tns:RequestHeader" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="RequestBase" nillable="true" type="tns:RequestBase" />
+      <xs:complexType name="RequestHeader">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="InstitutionId" type="xs:long" />
+          <xs:element minOccurs="0" name="OriginatorUserId" type="xs:long" />
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="RequestHeader" nillable="true" type="tns:RequestHeader" />
+      <xs:complexType name="ResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Header" nillable="true" type="tns:ResponseHeader" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ResponseBase" nillable="true" type="tns:ResponseBase" />
+      <xs:complexType name="ResponseHeader">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResponseCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Status" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ResponseHeader" nillable="true" type="tns:ResponseHeader" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PayFlex.E.ClientInterface.Contract.DTO.Shared" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PayFlex.E.ClientInterface.Contract.DTO.Shared" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" />
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xs:complexType name="DespatchAdviceBody">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="AdditionalDocumentReference" nillable="true" type="q1:ArrayOfDocumentReference" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="BuyerCustomerParty" nillable="true" type="q2:Party" />
+          <xs:element minOccurs="0" name="CopyIndicator" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Delivery" nillable="true" type="tns:DeliveryShipment" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="DeliveryCustomerParty" nillable="true" type="q3:CustomerParty" />
+          <xs:element minOccurs="0" name="DespatchLine" nillable="true" type="tns:ArrayOfDespatchLine" />
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="DespatchSupplierParty" nillable="true" type="q4:SupplierParty" />
+          <xs:element minOccurs="0" name="DespatchTypeCode" type="xs:int" />
+          <xs:element minOccurs="0" name="DocumentCurrencyCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IssueDateTime" type="xs:dateTime" />
+          <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Notes" nillable="true" type="q5:ArrayOfstring" />
+          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="OrderReference" nillable="true" type="q6:ArrayOfOrderReference" />
+          <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="OriginatorCustomerParty" nillable="true" type="q7:Party" />
+          <xs:element minOccurs="0" name="ProfileID" type="xs:int" />
+          <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="SellerSupplierParty" nillable="true" type="q8:Party" />
+          <xs:element minOccurs="0" name="Shipment" nillable="true" type="tns:DespatchShipment" />
+          <xs:element minOccurs="0" name="UUID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="DespatchAdviceBody" nillable="true" type="tns:DespatchAdviceBody" />
+      <xs:complexType name="DeliveryShipment">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ActualDeliveryDateTime" type="xs:dateTime" />
+          <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="AlternativeDeliveryLocation" nillable="true" type="q9:Location" />
+          <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="CarrierParty" nillable="true" type="q10:Party" />
+          <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="DeliveryAddress" nillable="true" type="q11:Address" />
+          <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="DeliveryParty" nillable="true" type="q12:Party" />
+          <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="DeliveryTerms" nillable="true" type="q13:ArrayOfDeliveryTerms" />
+          <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="Despatch" nillable="true" type="q14:Despatch" />
+          <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="EstimatedDeliveryPeriod" nillable="true" type="q15:Period" />
+          <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LatestDeliveryDateTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Quantity" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TrackingID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="DeliveryShipment" nillable="true" type="tns:DeliveryShipment" />
+      <xs:complexType name="ArrayOfDespatchLine">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DespatchLine" nillable="true" type="tns:DespatchLine" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfDespatchLine" nillable="true" type="tns:ArrayOfDespatchLine" />
+      <xs:complexType name="DespatchLine">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DeliveredQuantity" type="xs:decimal" />
+          <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="DocumentReference" nillable="true" type="q16:ArrayOfDocumentReference" />
+          <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="Item" nillable="true" type="q17:Item" />
+          <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Notes" nillable="true" type="q18:ArrayOfstring" />
+          <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="OrderLineReferences" nillable="true" type="q19:OrderLineReference" />
+          <xs:element minOccurs="0" name="OutstandingQuantity" type="xs:decimal" />
+          <xs:element xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="OutstandingReason" nillable="true" type="q20:ArrayOfstring" />
+          <xs:element minOccurs="0" name="OversupplyQuantity" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Shipment" nillable="true" type="tns:ArrayOfDespatchShipment" />
+          <xs:element minOccurs="0" name="UnitCode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="DespatchLine" nillable="true" type="tns:DespatchLine" />
+      <xs:complexType name="ArrayOfDespatchShipment">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DespatchShipment" nillable="true" type="tns:DespatchShipment" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfDespatchShipment" nillable="true" type="tns:ArrayOfDespatchShipment" />
+      <xs:complexType name="DespatchShipment">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DeclaredCustomsValueAmount" nillable="true" type="tns:Amount" />
+          <xs:element minOccurs="0" name="DeclaredForCarriageValueAmount" nillable="true" type="tns:Amount" />
+          <xs:element minOccurs="0" name="DeclaredStatisticsValueAmount" nillable="true" type="tns:Amount" />
+          <xs:element minOccurs="0" name="Delivery" nillable="true" type="tns:DeliveryShipment" />
+          <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="FirstArrivalPortLocation" nillable="true" type="q21:Location" />
+          <xs:element minOccurs="0" name="FreeOnBoardValueAmount" nillable="true" type="tns:Amount" />
+          <xs:element minOccurs="0" name="GoodsItem" nillable="true" type="tns:ArrayOfDespatchGoodsItem" />
+          <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="GrossVolumeMeasure" nillable="true" type="q22:Measure" />
+          <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="GrossWeightMeasure" nillable="true" type="q23:Measure" />
+          <xs:element minOccurs="0" name="HandlingCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HandlingInstructions" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InsuranceValueAmount" nillable="true" type="tns:Amount" />
+          <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="LastExitPortLocation" nillable="true" type="q24:Location" />
+          <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="NetVolumeMeasure" nillable="true" type="q25:Measure" />
+          <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="NetWeightMeasure" nillable="true" type="q26:Measure" />
+          <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="ReturnAddress" nillable="true" type="q27:Address" />
+          <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="ShipmentStage" nillable="true" type="q28:ArrayOfShipmentStage" />
+          <xs:element xmlns:q29="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SpecialInstructions" nillable="true" type="q29:ArrayOfstring" />
+          <xs:element minOccurs="0" name="TotalGoodsItemQuantity" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TotalTransportHandlingUnitQuantity" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TransportHandlingUnit" nillable="true" type="tns:ArrayOfDespatchTransportHandlingUnit" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="DespatchShipment" nillable="true" type="tns:DespatchShipment" />
+      <xs:complexType name="Amount">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CurrencyCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Value" type="xs:decimal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Amount" nillable="true" type="tns:Amount" />
+      <xs:complexType name="ArrayOfDespatchGoodsItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DespatchGoodsItem" nillable="true" type="tns:DespatchGoodsItem" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfDespatchGoodsItem" nillable="true" type="tns:ArrayOfDespatchGoodsItem" />
+      <xs:complexType name="DespatchGoodsItem">
+        <xs:sequence>
+          <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="ChargableWeightMeasure" nillable="true" type="q30:Measure" />
+          <xs:element minOccurs="0" name="ChargeableQuantity" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CustomsImportClassifiedIndicator" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CustomsStatusCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomsTariffQuantity" type="xs:decimal" />
+          <xs:element minOccurs="0" name="DeclaredCustomsValueAmount" nillable="true" type="tns:Amount" />
+          <xs:element minOccurs="0" name="DeclaredForCarriageValueAmount" nillable="true" type="tns:Amount" />
+          <xs:element minOccurs="0" name="DeclaredStatisticsValueAmount" nillable="true" type="tns:Amount" />
+          <xs:element xmlns:q31="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Description" nillable="true" type="q31:ArrayOfstring" />
+          <xs:element minOccurs="0" name="FreeOnBoardValueAmount" nillable="true" type="tns:Amount" />
+          <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="FreightAllowanceCharge" nillable="true" type="q32:ArrayOfAllowanceCharge" />
+          <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="GrossVolumeMeasure" nillable="true" type="q33:Measure" />
+          <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="GrossWeightMeasure" nillable="true" type="q34:Measure" />
+          <xs:element minOccurs="0" name="HazardousRiskIndicator" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InsuranceValueAmount" nillable="true" type="tns:Amount" />
+          <xs:element minOccurs="0" name="InvoiceLine" nillable="true" type="tns:ArrayOfDespatchInvoiceLine" />
+          <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="Item" nillable="true" type="q35:ArrayOfItem" />
+          <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="MeasurementDimension" nillable="true" type="q36:ArrayOfDimension" />
+          <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="NetVolumeMeasure" nillable="true" type="q37:Measure" />
+          <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="NetWeightMeasure" nillable="true" type="q38:Measure" />
+          <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="OriginAddress" nillable="true" type="q39:Address" />
+          <xs:element minOccurs="0" name="Quantity" type="xs:decimal" />
+          <xs:element minOccurs="0" name="RequiredCustomsID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReturnableQuantity" type="xs:decimal" />
+          <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="Temperature" nillable="true" type="q40:ArrayOfTemperature" />
+          <xs:element minOccurs="0" name="TraceID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ValueAmount" nillable="true" type="tns:Amount" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="DespatchGoodsItem" nillable="true" type="tns:DespatchGoodsItem" />
+      <xs:complexType name="ArrayOfDespatchInvoiceLine">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DespatchInvoiceLine" nillable="true" type="tns:DespatchInvoiceLine" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfDespatchInvoiceLine" nillable="true" type="tns:ArrayOfDespatchInvoiceLine" />
+      <xs:complexType name="DespatchInvoiceLine">
+        <xs:sequence>
+          <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="AllowanceCharge" nillable="true" type="q41:AllowanceCharge" />
+          <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="AllowanceCharges" nillable="true" type="q42:ArrayOfAllowanceCharge" />
+          <xs:element minOccurs="0" name="Delivery" nillable="true" type="tns:ArrayOfDeliveryShipment" />
+          <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="DespatchLineReference" nillable="true" type="q43:ArrayOfLineReference" />
+          <xs:element minOccurs="0" name="InvoicedQuantityUnitCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InvoicedQuantityValue" type="xs:decimal" />
+          <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="Item" nillable="true" type="q44:Item" />
+          <xs:element minOccurs="0" name="LineExtensionAmount" nillable="true" type="tns:Amount" />
+          <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+          <xs:element xmlns:q45="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Notes" nillable="true" type="q45:ArrayOfstring" />
+          <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="OrderLineReference" nillable="true" type="q46:ArrayOfOrderLineReference" />
+          <xs:element minOccurs="0" name="Price" nillable="true" type="tns:Amount" />
+          <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="ReceiptLineReference" nillable="true" type="q47:ArrayOfLineReference" />
+          <xs:element minOccurs="0" name="SubInvoiceLine" nillable="true" type="tns:ArrayOfDespatchInvoiceSubLine" />
+          <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="TaxTotal" nillable="true" type="q48:TaxTotal" />
+          <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="WithholdingTaxTotal" nillable="true" type="q49:ArrayOfTaxTotal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="DespatchInvoiceLine" nillable="true" type="tns:DespatchInvoiceLine" />
+      <xs:complexType name="ArrayOfDeliveryShipment">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DeliveryShipment" nillable="true" type="tns:DeliveryShipment" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfDeliveryShipment" nillable="true" type="tns:ArrayOfDeliveryShipment" />
+      <xs:complexType name="ArrayOfDespatchInvoiceSubLine">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DespatchInvoiceSubLine" nillable="true" type="tns:DespatchInvoiceSubLine" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfDespatchInvoiceSubLine" nillable="true" type="tns:ArrayOfDespatchInvoiceSubLine" />
+      <xs:complexType name="DespatchInvoiceSubLine">
+        <xs:sequence>
+          <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="AllowanceCharge" nillable="true" type="q50:ArrayOfAllowanceCharge" />
+          <xs:element minOccurs="0" name="Delivery" nillable="true" type="tns:ArrayOfDeliveryShipment" />
+          <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="DespatchLineReference" nillable="true" type="q51:ArrayOfLineReference" />
+          <xs:element minOccurs="0" name="InvoicedQuantityUnitCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InvoicedQuantityValue" type="xs:decimal" />
+          <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="Item" nillable="true" type="q52:Item" />
+          <xs:element minOccurs="0" name="LineExtensionAmount" nillable="true" type="tns:Amount" />
+          <xs:element xmlns:q53="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Notes" nillable="true" type="q53:ArrayOfstring" />
+          <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="OrderLineReference" nillable="true" type="q54:ArrayOfOrderLineReference" />
+          <xs:element minOccurs="0" name="Price" nillable="true" type="tns:Amount" />
+          <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="ReceiptLineReference" nillable="true" type="q55:ArrayOfLineReference" />
+          <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="TaxTotal" nillable="true" type="q56:TaxTotal" />
+          <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="WithholdingTaxTotal" nillable="true" type="q57:ArrayOfTaxTotal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="DespatchInvoiceSubLine" nillable="true" type="tns:DespatchInvoiceSubLine" />
+      <xs:complexType name="ArrayOfDespatchTransportHandlingUnit">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DespatchTransportHandlingUnit" nillable="true" type="tns:DespatchTransportHandlingUnit" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfDespatchTransportHandlingUnit" nillable="true" type="tns:ArrayOfDespatchTransportHandlingUnit" />
+      <xs:complexType name="DespatchTransportHandlingUnit">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ActualPackage" nillable="true" type="tns:ArrayOfDespatchPackage" />
+          <xs:element xmlns:q58="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CustomsIdentifications" nillable="true" type="q58:ArrayOfstring" />
+          <xs:element xmlns:q59="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DamageRemarks" nillable="true" type="q59:ArrayOfstring" />
+          <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="FloorSpaceMeasurementDimension" nillable="true" type="q60:Dimension" />
+          <xs:element minOccurs="0" name="HandlingCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HandlingInstructions" nillable="true" type="xs:string" />
+          <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="HazardousGoodsTransit" nillable="true" type="q61:ArrayOfHazardousGoodsTransit" />
+          <xs:element minOccurs="0" name="HazardousRiskIndicator" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+          <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="MaximumTemperature" nillable="true" type="q62:Temperature" />
+          <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="MeasurementDimension" nillable="true" type="q63:ArrayOfDimension" />
+          <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="MinimumTemperature" nillable="true" type="q64:Temperature" />
+          <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="PalletSpaceMeasurementDimension" nillable="true" type="q65:Dimension" />
+          <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="ShipmentDocumentReference" nillable="true" type="q66:ArrayOfDocumentReference" />
+          <xs:element minOccurs="0" name="TotalGoodsItemQuantity" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TotalPackageQuantity" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TraceID" nillable="true" type="xs:string" />
+          <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="TransportEquipments" nillable="true" type="q67:ArrayOfTransportEquipment" />
+          <xs:element minOccurs="0" name="TransportHandlingUnitTypeCode" nillable="true" type="xs:string" />
+          <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="TransportMeans" nillable="true" type="q68:ArrayOfTransportMeans" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="DespatchTransportHandlingUnit" nillable="true" type="tns:DespatchTransportHandlingUnit" />
+      <xs:complexType name="ArrayOfDespatchPackage">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DespatchPackage" nillable="true" type="tns:DespatchPackage" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfDespatchPackage" nillable="true" type="tns:ArrayOfDespatchPackage" />
+      <xs:complexType name="DespatchPackage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ContainedPackage" nillable="true" type="tns:ArrayOfDespatchContainedPackage" />
+          <xs:element minOccurs="0" name="GoodsItems" nillable="true" type="tns:ArrayOfDespatchGoodsItem" />
+          <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+          <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="MeasurementDimension" nillable="true" type="q69:ArrayOfDimension" />
+          <xs:element minOccurs="0" name="PackageLevelCode" nillable="true" type="xs:string" />
+          <xs:element xmlns:q70="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="PackagingMaterial" nillable="true" type="q70:ArrayOfstring" />
+          <xs:element minOccurs="0" name="PackagingTypeCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Quantity" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ReturnableMaterialIndicator" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="DespatchPackage" nillable="true" type="tns:DespatchPackage" />
+      <xs:complexType name="ArrayOfDespatchContainedPackage">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DespatchContainedPackage" nillable="true" type="tns:DespatchContainedPackage" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfDespatchContainedPackage" nillable="true" type="tns:ArrayOfDespatchContainedPackage" />
+      <xs:complexType name="DespatchContainedPackage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="GoodsItems" nillable="true" type="tns:ArrayOfDespatchGoodsItem" />
+          <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+          <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="MeasurementDimension" nillable="true" type="q71:ArrayOfDimension" />
+          <xs:element minOccurs="0" name="PackageLevelCode" nillable="true" type="xs:string" />
+          <xs:element xmlns:q72="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="PackagingMaterial" nillable="true" type="q72:ArrayOfstring" />
+          <xs:element minOccurs="0" name="PackagingTypeCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Quantity" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ReturnableMaterialIndicator" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="DespatchContainedPackage" nillable="true" type="tns:DespatchContainedPackage" />
+      <xs:complexType name="ReceiptAdviceBody">
+        <xs:sequence>
+          <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="AdditionalDocumentReference" nillable="true" type="q73:ArrayOfDocumentReference" />
+          <xs:element minOccurs="0" name="CopyIndicator" type="xs:boolean" />
+          <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="DeliveryCustomerParty" nillable="true" type="q74:CustomerParty" />
+          <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="DespatchDocumentReference" nillable="true" type="q75:DocumentReference" />
+          <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="DespatchSupplierParty" nillable="true" type="q76:SupplierParty" />
+          <xs:element minOccurs="0" name="DespatchTypeCode" type="xs:int" />
+          <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IssueDateTime" type="xs:dateTime" />
+          <xs:element xmlns:q77="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Notes" nillable="true" type="q77:ArrayOfstring" />
+          <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="OrderReferences" nillable="true" type="q78:ArrayOfOrderReference" />
+          <xs:element minOccurs="0" name="ProfileID" type="xs:int" />
+          <xs:element minOccurs="0" name="ReceiptLine" nillable="true" type="tns:ArrayOfReceiptLine" />
+          <xs:element minOccurs="0" name="Shipment" nillable="true" type="tns:DespatchShipment" />
+          <xs:element minOccurs="0" name="UUID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ReceiptAdviceBody" nillable="true" type="tns:ReceiptAdviceBody" />
+      <xs:complexType name="ArrayOfReceiptLine">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ReceiptLine" nillable="true" type="tns:ReceiptLine" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfReceiptLine" nillable="true" type="tns:ArrayOfReceiptLine" />
+      <xs:complexType name="ReceiptLine">
+        <xs:sequence>
+          <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="DespatchLineReference" nillable="true" type="q79:LineReference" />
+          <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="DocumentReference" nillable="true" type="q80:ArrayOfDocumentReference" />
+          <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="Item" nillable="true" type="q81:Item" />
+          <xs:element xmlns:q82="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Notes" nillable="true" type="q82:ArrayOfstring" />
+          <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="OrderLineReference" nillable="true" type="q83:OrderLineReference" />
+          <xs:element minOccurs="0" name="OversupplyQuantity" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ReceivedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ReceivedQuantity" type="xs:decimal" />
+          <xs:element xmlns:q84="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RejectReason" nillable="true" type="q84:ArrayOfstring" />
+          <xs:element minOccurs="0" name="RejectReasonCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RejectedQuantity" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Shipment" nillable="true" type="tns:ArrayOfDespatchShipment" />
+          <xs:element minOccurs="0" name="ShortQuantity" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TimingComplaint" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TimingComplaintCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UnitCode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ReceiptLine" nillable="true" type="tns:ReceiptLine" />
+    </xs:schema>
+    <xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.Shared" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xs:complexType name="ArrayOfDocumentReference">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DocumentReference" nillable="true" type="tns:DocumentReference" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfDocumentReference" nillable="true" type="tns:ArrayOfDocumentReference" />
+      <xs:complexType name="DocumentReference">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Attachment" nillable="true" type="tns:Attachment" />
+          <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DocumentDescription" nillable="true" type="q1:ArrayOfstring" />
+          <xs:element minOccurs="0" name="DocumentType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DocumentTypeCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IssueDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="IssuerParty" nillable="true" type="tns:Party" />
+          <xs:element minOccurs="0" name="ValidityPeriod" nillable="true" type="tns:Period" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="DocumentReference" nillable="true" type="tns:DocumentReference" />
+      <xs:complexType name="Attachment">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EmbeddedDocumentBinaryObject" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ExternalReference" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MimeCode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Attachment" nillable="true" type="tns:Attachment" />
+      <xs:complexType name="Party">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AgentParty" nillable="true" type="tns:AgentParty" />
+          <xs:element minOccurs="0" name="Contact" nillable="true" type="tns:Contact" />
+          <xs:element minOccurs="0" name="EndpointID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IndustryClassificationCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartyIdentifications" nillable="true" type="tns:ArrayOfPartyIdentification" />
+          <xs:element minOccurs="0" name="PartyLegalEntity" nillable="true" type="tns:ArrayOfPartyLegalEntity" />
+          <xs:element minOccurs="0" name="PartyName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartyTax" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Person" nillable="true" type="tns:Person" />
+          <xs:element minOccurs="0" name="PhysicalLocation" nillable="true" type="tns:Location" />
+          <xs:element minOccurs="0" name="PostalAddress" nillable="true" type="tns:Address" />
+          <xs:element minOccurs="0" name="WebsiteURI" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Party" nillable="true" type="tns:Party" />
+      <xs:complexType name="AgentParty">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Contact" nillable="true" type="tns:Contact" />
+          <xs:element minOccurs="0" name="IndustryClassificationCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartyIdentifications" nillable="true" type="tns:ArrayOfPartyIdentification" />
+          <xs:element minOccurs="0" name="PartyName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartyTax" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Person" nillable="true" type="tns:Person" />
+          <xs:element minOccurs="0" name="PostalAddress" nillable="true" type="tns:Address" />
+          <xs:element minOccurs="0" name="WebsiteURI" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="AgentParty" nillable="true" type="tns:AgentParty" />
+      <xs:complexType name="Contact">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ElectronicMail" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OtherCommunication" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Telefax" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Telephone" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Contact" nillable="true" type="tns:Contact" />
+      <xs:complexType name="ArrayOfPartyIdentification">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="PartyIdentification" nillable="true" type="tns:PartyIdentification" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfPartyIdentification" nillable="true" type="tns:ArrayOfPartyIdentification" />
+      <xs:complexType name="PartyIdentification">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="SchemeID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="PartyIdentification" nillable="true" type="tns:PartyIdentification" />
+      <xs:complexType name="Person">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FamilyName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FinancialAccount" nillable="true" type="tns:FinancialAccount" />
+          <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IdentityDocumentReference" nillable="true" type="tns:IdentityDocumentReference" />
+          <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NameSuffix" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NationalityID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Person" nillable="true" type="tns:Person" />
+      <xs:complexType name="FinancialAccount">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CurrencyCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FinancialInstitutionBranch" nillable="true" type="tns:Branch" />
+          <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PaymentNote" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="FinancialAccount" nillable="true" type="tns:FinancialAccount" />
+      <xs:complexType name="Branch">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FinancialInstitution" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Branch" nillable="true" type="tns:Branch" />
+      <xs:complexType name="IdentityDocumentReference">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Attachment" nillable="true" type="tns:Attachment" />
+          <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DocumentDescription" nillable="true" type="q2:ArrayOfstring" />
+          <xs:element minOccurs="0" name="DocumentType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DocumentTypeCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IssueDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ValidityPeriod" nillable="true" type="tns:Period" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="IdentityDocumentReference" nillable="true" type="tns:IdentityDocumentReference" />
+      <xs:complexType name="Period">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DurationMeasureCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DurationMeasureValue" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EndDateTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="StartDateTime" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Period" nillable="true" type="tns:Period" />
+      <xs:complexType name="Address">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BlockName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BuildingName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BuildingNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CityName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CitySubdivisionName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Country" nillable="true" type="tns:Country" />
+          <xs:element minOccurs="0" name="District" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PostBox" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PostalZone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Region" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Room" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StreetName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Address" nillable="true" type="tns:Address" />
+      <xs:complexType name="Country">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IdentificationCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Country" nillable="true" type="tns:Country" />
+      <xs:complexType name="ArrayOfPartyLegalEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="PartyLegalEntity" nillable="true" type="tns:PartyLegalEntity" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfPartyLegalEntity" nillable="true" type="tns:ArrayOfPartyLegalEntity" />
+      <xs:complexType name="PartyLegalEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CorporateRegistrationScheme" nillable="true" type="tns:CorporateRegistrationScheme" />
+          <xs:element minOccurs="0" name="CorporateStockAmount" nillable="true" type="tns:Amount" />
+          <xs:element minOccurs="0" name="FullyPaidSharesIndicator" type="xs:boolean" />
+          <xs:element minOccurs="0" name="HeadParty" nillable="true" type="tns:HeadParty" />
+          <xs:element minOccurs="0" name="RegistrationDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="RegistrationName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SoleProprietorshipIndicator" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="PartyLegalEntity" nillable="true" type="tns:PartyLegalEntity" />
+      <xs:complexType name="CorporateRegistrationScheme">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="JurisdictionRegionAddress" nillable="true" type="tns:Address" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="CorporateRegistrationScheme" nillable="true" type="tns:CorporateRegistrationScheme" />
+      <xs:complexType name="Amount">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CurrencyCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Value" type="xs:decimal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Amount" nillable="true" type="tns:Amount" />
+      <xs:complexType name="HeadParty">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AgentParty" nillable="true" type="tns:AgentParty" />
+          <xs:element minOccurs="0" name="Contact" nillable="true" type="tns:Contact" />
+          <xs:element minOccurs="0" name="IndustryClassificationCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartyIdentifications" nillable="true" type="tns:ArrayOfPartyIdentification" />
+          <xs:element minOccurs="0" name="PartyName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartyTax" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Person" nillable="true" type="tns:Person" />
+          <xs:element minOccurs="0" name="PostalAddress" nillable="true" type="tns:Address" />
+          <xs:element minOccurs="0" name="WebsiteURI" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="HeadParty" nillable="true" type="tns:HeadParty" />
+      <xs:complexType name="Location">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address" nillable="true" type="tns:Address" />
+          <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Location" nillable="true" type="tns:Location" />
+      <xs:complexType name="ArrayOfDeliveryTerms">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DeliveryTerms" nillable="true" type="tns:DeliveryTerms" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfDeliveryTerms" nillable="true" type="tns:ArrayOfDeliveryTerms" />
+      <xs:complexType name="DeliveryTerms">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Amount" nillable="true" type="tns:Amount" />
+          <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SpecialTerms" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="DeliveryTerms" nillable="true" type="tns:DeliveryTerms" />
+      <xs:complexType name="Despatch">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ActualDespatchDateTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Contact" nillable="true" type="tns:Contact" />
+          <xs:element minOccurs="0" name="DespatchAddress" nillable="true" type="tns:Address" />
+          <xs:element minOccurs="0" name="DespatchParty" nillable="true" type="tns:Party" />
+          <xs:element minOccurs="0" name="EstimatedDespatchPeriod" nillable="true" type="tns:Period" />
+          <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Instructions" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Despatch" nillable="true" type="tns:Despatch" />
+      <xs:complexType name="CustomerParty">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DespatchContact" nillable="true" type="tns:Contact" />
+          <xs:element minOccurs="0" name="Party" nillable="true" type="tns:Party" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="CustomerParty" nillable="true" type="tns:CustomerParty" />
+      <xs:complexType name="Item">
+        <xs:sequence>
+          <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AdditionalItemIdentificationCodes" nillable="true" type="q3:ArrayOfstring" />
+          <xs:element minOccurs="0" name="BrandName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BuyersItemIdentification" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CommodityClassification" nillable="true" type="tns:ArrayOfCommodityClassification" />
+          <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CommodityClassificationCodes" nillable="true" type="q4:ArrayOfstring" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ManufacturersItemIdentification" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ModelName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OriginCountry" nillable="true" type="tns:OriginCountry" />
+          <xs:element minOccurs="0" name="ProductTraceID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SellersItemIdentification" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SerialID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Item" nillable="true" type="tns:Item" />
+      <xs:complexType name="ArrayOfCommodityClassification">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="CommodityClassification" nillable="true" type="tns:CommodityClassification" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfCommodityClassification" nillable="true" type="tns:ArrayOfCommodityClassification" />
+      <xs:complexType name="CommodityClassification">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ItemClassificationCode" nillable="true" type="tns:ItemClassificationCode" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="CommodityClassification" nillable="true" type="tns:CommodityClassification" />
+      <xs:complexType name="ItemClassificationCode">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="listName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="listVersionID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ItemClassificationCode" nillable="true" type="tns:ItemClassificationCode" />
+      <xs:complexType name="OriginCountry">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IdentificationCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="OriginCountry" nillable="true" type="tns:OriginCountry" />
+      <xs:complexType name="OrderLineReference">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="LineID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LineStatusCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OrderReference" nillable="true" type="tns:OrderReference" />
+          <xs:element minOccurs="0" name="SalesOrderLineID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UUID" type="ser:guid" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="OrderLineReference" nillable="true" type="tns:OrderLineReference" />
+      <xs:complexType name="OrderReference">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DocumentReference" nillable="true" type="tns:ArrayOfDocumentReference" />
+          <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IssueDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="OrderTypeCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SalesOrderID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="OrderReference" nillable="true" type="tns:OrderReference" />
+      <xs:complexType name="Measure">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="UnitCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Measure" nillable="true" type="tns:Measure" />
+      <xs:complexType name="ArrayOfAllowanceCharge">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="AllowanceCharge" nillable="true" type="tns:AllowanceCharge" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfAllowanceCharge" nillable="true" type="tns:ArrayOfAllowanceCharge" />
+      <xs:complexType name="AllowanceCharge">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AllowanceChargeReason" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Amount" nillable="true" type="tns:Amount" />
+          <xs:element minOccurs="0" name="BaseAmount" nillable="true" type="tns:Amount" />
+          <xs:element minOccurs="0" name="ChargeIndicator" type="xs:boolean" />
+          <xs:element minOccurs="0" name="MultiplierFactorNumeric" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PerUnitAmount" nillable="true" type="tns:Amount" />
+          <xs:element minOccurs="0" name="SequenceNumeric" type="xs:decimal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="AllowanceCharge" nillable="true" type="tns:AllowanceCharge" />
+      <xs:complexType name="ArrayOfLineReference">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="LineReference" nillable="true" type="tns:LineReference" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfLineReference" nillable="true" type="tns:ArrayOfLineReference" />
+      <xs:complexType name="LineReference">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DocumentReference" nillable="true" type="tns:DocumentReference" />
+          <xs:element minOccurs="0" name="LineID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LineStatusCode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="LineReference" nillable="true" type="tns:LineReference" />
+      <xs:complexType name="ArrayOfOrderLineReference">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderLineReference" nillable="true" type="tns:OrderLineReference" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfOrderLineReference" nillable="true" type="tns:ArrayOfOrderLineReference" />
+      <xs:complexType name="TaxTotal">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TaxAmount" nillable="true" type="tns:Amount" />
+          <xs:element minOccurs="0" name="TaxSubtotal" nillable="true" type="tns:ArrayOfTaxSubtotal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="TaxTotal" nillable="true" type="tns:TaxTotal" />
+      <xs:complexType name="ArrayOfTaxSubtotal">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="TaxSubtotal" nillable="true" type="tns:TaxSubtotal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfTaxSubtotal" nillable="true" type="tns:ArrayOfTaxSubtotal" />
+      <xs:complexType name="TaxSubtotal">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BaseUnitMeasure" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BaseUnitMeasureCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CalculationSequenceNumeric" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PerUnitAmount" nillable="true" type="tns:Amount" />
+          <xs:element minOccurs="0" name="Percent" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TaxAmount" nillable="true" type="tns:Amount" />
+          <xs:element minOccurs="0" name="TaxCategoryExemptionReason" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TaxCategoryExemptionReasonCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TaxCategorySchemeCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TaxCategorySchemeName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TaxableAmount" nillable="true" type="tns:Amount" />
+          <xs:element minOccurs="0" name="TransactionCurrencyTaxAmount" nillable="true" type="tns:Amount" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="TaxSubtotal" nillable="true" type="tns:TaxSubtotal" />
+      <xs:complexType name="ArrayOfTaxTotal">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="TaxTotal" nillable="true" type="tns:TaxTotal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfTaxTotal" nillable="true" type="tns:ArrayOfTaxTotal" />
+      <xs:complexType name="ArrayOfItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Item" nillable="true" type="tns:Item" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfItem" nillable="true" type="tns:ArrayOfItem" />
+      <xs:complexType name="ArrayOfDimension">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Dimension" nillable="true" type="tns:Dimension" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfDimension" nillable="true" type="tns:ArrayOfDimension" />
+      <xs:complexType name="Dimension">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AttributeID" nillable="true" type="xs:string" />
+          <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Description" nillable="true" type="q5:ArrayOfstring" />
+          <xs:element minOccurs="0" name="MaximumMeasure" nillable="true" type="tns:Measure" />
+          <xs:element minOccurs="0" name="Measure" nillable="true" type="tns:Measure" />
+          <xs:element minOccurs="0" name="MinimumMeasure" nillable="true" type="tns:Measure" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Dimension" nillable="true" type="tns:Dimension" />
+      <xs:complexType name="ArrayOfTemperature">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Temperature" nillable="true" type="tns:Temperature" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfTemperature" nillable="true" type="tns:ArrayOfTemperature" />
+      <xs:complexType name="Temperature">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AttributeID" nillable="true" type="xs:string" />
+          <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Description" nillable="true" type="q6:ArrayOfstring" />
+          <xs:element minOccurs="0" name="Measure" nillable="true" type="tns:Measure" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Temperature" nillable="true" type="tns:Temperature" />
+      <xs:complexType name="ArrayOfShipmentStage">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ShipmentStage" nillable="true" type="tns:ShipmentStage" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfShipmentStage" nillable="true" type="tns:ArrayOfShipmentStage" />
+      <xs:complexType name="ShipmentStage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DriverPerson" nillable="true" type="tns:ArrayOfPerson" />
+          <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TransportMeans" nillable="true" type="tns:TransportMeans" />
+          <xs:element minOccurs="0" name="TransportModeCode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ShipmentStage" nillable="true" type="tns:ShipmentStage" />
+      <xs:complexType name="ArrayOfPerson">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Person" nillable="true" type="tns:Person" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfPerson" nillable="true" type="tns:ArrayOfPerson" />
+      <xs:complexType name="TransportMeans">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AirTransport" nillable="true" type="tns:AirTransport" />
+          <xs:element minOccurs="0" name="DirectionCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DriverParty" nillable="true" type="tns:ArrayOfParty" />
+          <xs:element minOccurs="0" name="JourneyID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MaritimeTransport" nillable="true" type="tns:MaritimeTransport" />
+          <xs:element minOccurs="0" name="MeasurementDimension" nillable="true" type="tns:ArrayOfDimension" />
+          <xs:element minOccurs="0" name="OwnerParty" nillable="true" type="tns:Party" />
+          <xs:element minOccurs="0" name="PassengerParty" nillable="true" type="tns:ArrayOfParty" />
+          <xs:element minOccurs="0" name="RailTransport" nillable="true" type="tns:RailTransport" />
+          <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RegistrationNationality" nillable="true" type="q7:ArrayOfstring" />
+          <xs:element minOccurs="0" name="RegistrationNationalityID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReportingParty" nillable="true" type="tns:Party" />
+          <xs:element minOccurs="0" name="RoadTransport" nillable="true" type="tns:RoadTransport" />
+          <xs:element minOccurs="0" name="Stowage" nillable="true" type="tns:Stowage" />
+          <xs:element minOccurs="0" name="TradeServiceCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TransportMeansTypeCode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="TransportMeans" nillable="true" type="tns:TransportMeans" />
+      <xs:complexType name="AirTransport">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AircraftID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="AirTransport" nillable="true" type="tns:AirTransport" />
+      <xs:complexType name="ArrayOfParty">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Party" nillable="true" type="tns:Party" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfParty" nillable="true" type="tns:ArrayOfParty" />
+      <xs:complexType name="MaritimeTransport">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="RadioCallSignID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VesselID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VesselName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="MaritimeTransport" nillable="true" type="tns:MaritimeTransport" />
+      <xs:complexType name="RailTransport">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="RailCarID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TrainID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="RailTransport" nillable="true" type="tns:RailTransport" />
+      <xs:complexType name="RoadTransport">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="LicensePlateID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="RoadTransport" nillable="true" type="tns:RoadTransport" />
+      <xs:complexType name="Stowage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Location" nillable="true" type="tns:ArrayOfLocation" />
+          <xs:element minOccurs="0" name="LocationID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MeasurementDimension" nillable="true" type="tns:ArrayOfDimension" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Stowage" nillable="true" type="tns:Stowage" />
+      <xs:complexType name="ArrayOfLocation">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Location" nillable="true" type="tns:Location" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfLocation" nillable="true" type="tns:ArrayOfLocation" />
+      <xs:complexType name="ArrayOfHazardousGoodsTransit">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="HazardousGoodsTransit" nillable="true" type="tns:HazardousGoodsTransit" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfHazardousGoodsTransit" nillable="true" type="tns:ArrayOfHazardousGoodsTransit" />
+      <xs:complexType name="HazardousGoodsTransit">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HazardousRegulationCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InhalationToxicityZoneCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MaximumTemperature" nillable="true" type="tns:Temperature" />
+          <xs:element minOccurs="0" name="MinimumTemperature" nillable="true" type="tns:Temperature" />
+          <xs:element minOccurs="0" name="PackagingCriteriaCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TransportAuthorizationCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TransportEmergencyCardCode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="HazardousGoodsTransit" nillable="true" type="tns:HazardousGoodsTransit" />
+      <xs:complexType name="ArrayOfTransportEquipment">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="TransportEquipment" nillable="true" type="tns:TransportEquipment" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfTransportEquipment" nillable="true" type="tns:ArrayOfTransportEquipment" />
+      <xs:complexType name="TransportEquipment">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TransportEquipmentTypeCode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="TransportEquipment" nillable="true" type="tns:TransportEquipment" />
+      <xs:complexType name="ArrayOfTransportMeans">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="TransportMeans" nillable="true" type="tns:TransportMeans" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfTransportMeans" nillable="true" type="tns:ArrayOfTransportMeans" />
+      <xs:complexType name="SupplierParty">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DespatchContact" nillable="true" type="tns:Contact" />
+          <xs:element minOccurs="0" name="Party" nillable="true" type="tns:Party" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="SupplierParty" nillable="true" type="tns:SupplierParty" />
+      <xs:complexType name="ArrayOfOrderReference">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderReference" nillable="true" type="tns:OrderReference" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfOrderReference" nillable="true" type="tns:ArrayOfOrderReference" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfstring">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.Shared" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.Shared" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xs:complexType name="OutgoingDespatchAdviceHeader">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DespatchAdviceLabels" nillable="true" type="q1:ArrayOfstring" />
+          <xs:element minOccurs="0" name="DespatchAdviceNumberPrefix" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DespatchAdviceSendType" type="xs:int" />
+          <xs:element minOccurs="0" name="DespatchTypeCode" type="xs:int" />
+          <xs:element minOccurs="0" name="ExternalDepartmentId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InvoiceNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsDraft" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsOverrideWithRetry" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsUnregisteredCustomer" type="xs:boolean" />
+          <xs:element minOccurs="0" name="OperationSourceCode" type="xs:int" />
+          <xs:element minOccurs="0" name="ReceiverAlias" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReceiverIdentityNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SenderAlias" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TrackNumber" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="OutgoingDespatchAdviceHeader" nillable="true" type="tns:OutgoingDespatchAdviceHeader" />
+      <xs:complexType name="ArrayOfDespatchAdviceResultItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DespatchAdviceResultItem" nillable="true" type="tns:DespatchAdviceResultItem" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfDespatchAdviceResultItem" nillable="true" type="tns:ArrayOfDespatchAdviceResultItem" />
+      <xs:complexType name="DespatchAdviceResultItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DespatchAdviceNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReferenceNumber" type="xs:long" />
+          <xs:element minOccurs="0" name="ResponseCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResponseDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResponseStatus" type="xs:int" />
+          <xs:element minOccurs="0" name="TrackNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UUID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ViewUrl" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="DespatchAdviceResultItem" nillable="true" type="tns:DespatchAdviceResultItem" />
+      <xs:complexType name="OutgoingReceiptAdviceHeader">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DespatchTypeCode" type="xs:int" />
+          <xs:element minOccurs="0" name="ExternalDepartmentId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsDraft" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsOverrideWithRetry" type="xs:boolean" />
+          <xs:element minOccurs="0" name="OperationSourceCode" type="xs:int" />
+          <xs:element minOccurs="0" name="ReceiptAdviceNumberPrefix" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReceiptAdviceSendType" type="xs:int" />
+          <xs:element minOccurs="0" name="ReceiverAlias" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReceiverIdentityNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReferenceNumber" type="xs:long" />
+          <xs:element minOccurs="0" name="SenderAlias" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TrackNumber" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="OutgoingReceiptAdviceHeader" nillable="true" type="tns:OutgoingReceiptAdviceHeader" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.GetDespatchAdvices" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.GetDespatchAdvices" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.E.ClientInterface.Contract.DTO.Shared" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.Shared.DespatchAdvice" />
+      <xs:complexType name="GetDespatchAdvicesRequest">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" base="q1:RequestBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="AcceptanceDateTime" type="xs:dateTime" />
+              <xs:element minOccurs="0" name="MaxItemsToReturn" type="xs:int" />
+              <xs:element minOccurs="0" name="RequestNumber" type="xs:int" />
+              <xs:element minOccurs="0" name="ViewContentType" type="xs:int" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="GetDespatchAdvicesRequest" nillable="true" type="tns:GetDespatchAdvicesRequest" />
+      <xs:complexType name="GetDepatchAdvicesResponse">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" base="q2:ResponseBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="DespatchAdvices" nillable="true" type="tns:ArrayOfIncomingDespatchAdvice" />
+              <xs:element minOccurs="0" name="RemainedDespatchAdviceCount" type="xs:int" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="GetDepatchAdvicesResponse" nillable="true" type="tns:GetDepatchAdvicesResponse" />
+      <xs:complexType name="ArrayOfIncomingDespatchAdvice">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="IncomingDespatchAdvice" nillable="true" type="tns:IncomingDespatchAdvice" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfIncomingDespatchAdvice" nillable="true" type="tns:ArrayOfIncomingDespatchAdvice" />
+      <xs:complexType name="IncomingDespatchAdvice">
+        <xs:sequence>
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/PayFlex.E.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="Body" nillable="true" type="q3:DespatchAdviceBody" />
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.Shared.DespatchAdvice" minOccurs="0" name="Header" nillable="true" type="q4:IncomingDespatchAdviceHeader" />
+          <xs:element minOccurs="0" name="ViewContent" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="IncomingDespatchAdvice" nillable="true" type="tns:IncomingDespatchAdvice" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.Shared.DespatchAdvice" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.Shared.DespatchAdvice" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="IncomingDespatchAdviceHeader">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HashValue" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OperationDirectionType" type="xs:int" />
+          <xs:element minOccurs="0" name="ReceiveDateTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ReceiverAlias" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReferenceNumber" type="xs:long" />
+          <xs:element minOccurs="0" name="SenderAlias" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SenderIdentityNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ViewUrl" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="IncomingDespatchAdviceHeader" nillable="true" type="tns:IncomingDespatchAdviceHeader" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.GetDespatchCustomers" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.GetDespatchCustomers" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.DespatchCustomerInquiry" />
+      <xs:complexType name="GetDespatchCustomersRequest">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" base="q1:RequestBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="DisplayLength" nillable="true" type="xs:int" />
+              <xs:element minOccurs="0" name="DisplayStart" nillable="true" type="xs:int" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="GetDespatchCustomersRequest" nillable="true" type="tns:GetDespatchCustomersRequest" />
+      <xs:complexType name="GetDespatchCustomersResponse">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" base="q2:ResponseBase">
+            <xs:sequence>
+              <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.DespatchCustomerInquiry" minOccurs="0" name="Customers" nillable="true" type="q3:ArrayOfCustomer" />
+              <xs:element minOccurs="0" name="RemainedCustomersCount" nillable="true" type="xs:int" />
+              <xs:element minOccurs="0" name="TotalPagesCount" nillable="true" type="xs:int" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="GetDespatchCustomersResponse" nillable="true" type="tns:GetDespatchCustomersResponse" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.DespatchCustomerInquiry" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.DespatchCustomerInquiry" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" />
+      <xs:complexType name="ArrayOfCustomer">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Customer" nillable="true" type="tns:Customer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfCustomer" nillable="true" type="tns:ArrayOfCustomer" />
+      <xs:complexType name="Customer">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CustomerCreatedOn" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="IdentityNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsExists" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ReceiverAliasses" nillable="true" type="tns:ArrayOfReceiverAlias" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Customer" nillable="true" type="tns:Customer" />
+      <xs:complexType name="ArrayOfReceiverAlias">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ReceiverAlias" nillable="true" type="tns:ReceiverAlias" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfReceiverAlias" nillable="true" type="tns:ArrayOfReceiverAlias" />
+      <xs:complexType name="ReceiverAlias">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Alias" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AliasCreatedOn" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ReceiverAlias" nillable="true" type="tns:ReceiverAlias" />
+      <xs:complexType name="DespatchCustomerInquiryRequest">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" base="q1:RequestBase">
+            <xs:sequence>
+              <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="IdentityNumbers" nillable="true" type="q2:ArrayOfstring" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="DespatchCustomerInquiryRequest" nillable="true" type="tns:DespatchCustomerInquiryRequest" />
+      <xs:complexType name="DespatchCustomerInquiryResponse">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" base="q3:ResponseBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="Customers" nillable="true" type="tns:ArrayOfCustomer" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="DespatchCustomerInquiryResponse" nillable="true" type="tns:DespatchCustomerInquiryResponse" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.SendReceiptAdvice" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.SendReceiptAdvice" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.E.ClientInterface.Contract.DTO.Shared" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.Shared" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.Shared.ReceiptAdvice" />
+      <xs:complexType name="SendReceiptAdviceRequest">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" base="q1:RequestBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="AcceptanceDateTime" type="xs:dateTime" />
+              <xs:element minOccurs="0" name="ReceiptAdvices" nillable="true" type="tns:ArrayOfReceiptAdvice" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="SendReceiptAdviceRequest" nillable="true" type="tns:SendReceiptAdviceRequest" />
+      <xs:complexType name="ArrayOfReceiptAdvice">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ReceiptAdvice" nillable="true" type="tns:ReceiptAdvice" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfReceiptAdvice" nillable="true" type="tns:ArrayOfReceiptAdvice" />
+      <xs:complexType name="ReceiptAdvice">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/PayFlex.E.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="Body" nillable="true" type="q2:ReceiptAdviceBody" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="Header" nillable="true" type="q3:OutgoingReceiptAdviceHeader" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ReceiptAdvice" nillable="true" type="tns:ReceiptAdvice" />
+      <xs:complexType name="SendReceiptAdviceResponse">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" base="q4:ResponseBase">
+            <xs:sequence>
+              <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.Shared.ReceiptAdvice" minOccurs="0" name="ReceiptAdviceResultItems" nillable="true" type="q5:ArrayOfReceiptAdviceResultItem" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="SendReceiptAdviceResponse" nillable="true" type="tns:SendReceiptAdviceResponse" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.Shared.ReceiptAdvice" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.Shared.ReceiptAdvice" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfReceiptAdviceResultItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ReceiptAdviceResultItem" nillable="true" type="tns:ReceiptAdviceResultItem" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfReceiptAdviceResultItem" nillable="true" type="tns:ArrayOfReceiptAdviceResultItem" />
+      <xs:complexType name="ReceiptAdviceResultItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ReceiptAdviceNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReferenceNumber" type="xs:long" />
+          <xs:element minOccurs="0" name="ResponseCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResponseDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResponseStatus" type="xs:int" />
+          <xs:element minOccurs="0" name="TrackNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UUID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ViewUrl" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ReceiptAdviceResultItem" nillable="true" type="tns:ReceiptAdviceResultItem" />
+      <xs:complexType name="IncomingReceiptAdviceHeader">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HashValue" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OperationDirectionType" type="xs:int" />
+          <xs:element minOccurs="0" name="ReceiveDateTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ReceiverAlias" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReferenceNumber" type="xs:long" />
+          <xs:element minOccurs="0" name="SenderAlias" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SenderIdentityNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ViewUrl" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="IncomingReceiptAdviceHeader" nillable="true" type="tns:IncomingReceiptAdviceHeader" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.DespatchAdviceInquiry" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.DespatchAdviceInquiry" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.E.ClientInterface.Contract.DTO.Shared" />
+      <xs:complexType name="DespatchAdviceInquiryRequest">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" base="q1:RequestBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="ReferenceNumber" type="xs:long" />
+              <xs:element minOccurs="0" name="ViewContentType" type="xs:int" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="DespatchAdviceInquiryRequest" nillable="true" type="tns:DespatchAdviceInquiryRequest" />
+      <xs:complexType name="DespatchAdviceInquiryResponse">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" base="q2:ResponseBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="EnvelopeStatus" type="xs:int" />
+              <xs:element minOccurs="0" name="EnvelopeStatusDescription" nillable="true" type="xs:string" />
+              <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/PayFlex.E.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="ReceiptAdvice" nillable="true" type="q3:ReceiptAdviceBody" />
+              <xs:element minOccurs="0" name="StatusType" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="ViewContent" nillable="true" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="DespatchAdviceInquiryResponse" nillable="true" type="tns:DespatchAdviceInquiryResponse" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.ReceiptAdviceInquiry" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.ReceiptAdviceInquiry" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" />
+      <xs:complexType name="ReceiptAdviceInquiryRequest">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" base="q1:RequestBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="ReferenceNumber" type="xs:long" />
+              <xs:element minOccurs="0" name="ViewContentType" type="xs:int" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="ReceiptAdviceInquiryRequest" nillable="true" type="tns:ReceiptAdviceInquiryRequest" />
+      <xs:complexType name="ReceiptAdviceInquiryResponse">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" base="q2:ResponseBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="EnvelopeStatus" type="xs:int" />
+              <xs:element minOccurs="0" name="EnvelopeStatusDescription" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="StatusType" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="ViewContent" nillable="true" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="ReceiptAdviceInquiryResponse" nillable="true" type="tns:ReceiptAdviceInquiryResponse" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.DownloadDespatch" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.DownloadDespatch" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" />
+      <xs:complexType name="DownloadDespatchReceiptRequest">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" base="q1:RequestBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="AdviceType" type="xs:int" />
+              <xs:element minOccurs="0" name="OperationDirectionType" type="xs:int" />
+              <xs:element minOccurs="0" name="ReferenceNumber" type="xs:long" />
+              <xs:element minOccurs="0" name="TrackNumber" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="ViewContentType" type="xs:int" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="DownloadDespatchReceiptRequest" nillable="true" type="tns:DownloadDespatchReceiptRequest" />
+      <xs:complexType name="DownloadDespatchReceiptResponse">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" base="q2:ResponseBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="ViewContent" nillable="true" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="DownloadDespatchReceiptResponse" nillable="true" type="tns:DownloadDespatchReceiptResponse" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.GetDespatchAdviceRaw" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.GetDespatchAdviceRaw" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.Shared.DespatchAdvice" />
+      <xs:complexType name="GetDespatchAdviceRawRequest">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" base="q1:RequestBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="AcceptanceDateTime" type="xs:dateTime" />
+              <xs:element minOccurs="0" name="MaxItemsToReturn" type="xs:int" />
+              <xs:element minOccurs="0" name="RequestNumber" type="xs:int" />
+              <xs:element minOccurs="0" name="ViewContentType" type="xs:int" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="GetDespatchAdviceRawRequest" nillable="true" type="tns:GetDespatchAdviceRawRequest" />
+      <xs:complexType name="GetDespatchAdviceRawResponse">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" base="q2:ResponseBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="DespatchAdvice" nillable="true" type="tns:ArrayOfIncomingDespatchAdviceRaw" />
+              <xs:element minOccurs="0" name="RemainedDespatchAdviceCount" type="xs:int" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="GetDespatchAdviceRawResponse" nillable="true" type="tns:GetDespatchAdviceRawResponse" />
+      <xs:complexType name="ArrayOfIncomingDespatchAdviceRaw">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="IncomingDespatchAdviceRaw" nillable="true" type="tns:IncomingDespatchAdviceRaw" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfIncomingDespatchAdviceRaw" nillable="true" type="tns:ArrayOfIncomingDespatchAdviceRaw" />
+      <xs:complexType name="IncomingDespatchAdviceRaw">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Body" nillable="true" type="xs:string" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.Shared.DespatchAdvice" minOccurs="0" name="Header" nillable="true" type="q3:IncomingDespatchAdviceHeader" />
+          <xs:element minOccurs="0" name="ViewContent" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="IncomingDespatchAdviceRaw" nillable="true" type="tns:IncomingDespatchAdviceRaw" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.GetReceiptAdvicesRaw" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.GetReceiptAdvicesRaw" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.Shared.ReceiptAdvice" />
+      <xs:complexType name="GetReceiptAdviceRawRequest">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" base="q1:RequestBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="AcceptanceDateTime" type="xs:dateTime" />
+              <xs:element minOccurs="0" name="MaxItemsToReturn" type="xs:int" />
+              <xs:element minOccurs="0" name="RequestNumber" type="xs:int" />
+              <xs:element minOccurs="0" name="ViewContentType" type="xs:int" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="GetReceiptAdviceRawRequest" nillable="true" type="tns:GetReceiptAdviceRawRequest" />
+      <xs:complexType name="GetReceiptAdviceRawResponse">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" base="q2:ResponseBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="ReceiptAdvices" nillable="true" type="tns:ArrayOfIncomingReceiptAdviceRaw" />
+              <xs:element minOccurs="0" name="RemainedDespatchAdviceCount" type="xs:int" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="GetReceiptAdviceRawResponse" nillable="true" type="tns:GetReceiptAdviceRawResponse" />
+      <xs:complexType name="ArrayOfIncomingReceiptAdviceRaw">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="IncomingReceiptAdviceRaw" nillable="true" type="tns:IncomingReceiptAdviceRaw" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfIncomingReceiptAdviceRaw" nillable="true" type="tns:ArrayOfIncomingReceiptAdviceRaw" />
+      <xs:complexType name="IncomingReceiptAdviceRaw">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Body" nillable="true" type="xs:string" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.Shared.ReceiptAdvice" minOccurs="0" name="Header" nillable="true" type="q3:IncomingReceiptAdviceHeader" />
+          <xs:element minOccurs="0" name="ViewContent" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="IncomingReceiptAdviceRaw" nillable="true" type="tns:IncomingReceiptAdviceRaw" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.GetReceiptAdvices" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.GetReceiptAdvices" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.E.ClientInterface.Contract.DTO.Shared" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.Shared.ReceiptAdvice" />
+      <xs:complexType name="GetReceiptAdvicesRequest">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" base="q1:RequestBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="AcceptanceDateTime" type="xs:dateTime" />
+              <xs:element minOccurs="0" name="MaxItemsToReturn" type="xs:int" />
+              <xs:element minOccurs="0" name="RequestNumber" type="xs:int" />
+              <xs:element minOccurs="0" name="ViewContentType" type="xs:int" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="GetReceiptAdvicesRequest" nillable="true" type="tns:GetReceiptAdvicesRequest" />
+      <xs:complexType name="GetReceiptAdviceResponse">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" base="q2:ResponseBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="ReceiptAdvices" nillable="true" type="tns:ArrayOfIncomingReceiptAdvice" />
+              <xs:element minOccurs="0" name="RemainedDespatchAdviceCount" type="xs:int" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="GetReceiptAdviceResponse" nillable="true" type="tns:GetReceiptAdviceResponse" />
+      <xs:complexType name="ArrayOfIncomingReceiptAdvice">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="IncomingReceiptAdvice" nillable="true" type="tns:IncomingReceiptAdvice" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfIncomingReceiptAdvice" nillable="true" type="tns:ArrayOfIncomingReceiptAdvice" />
+      <xs:complexType name="IncomingReceiptAdvice">
+        <xs:sequence>
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/PayFlex.E.ClientInterface.Contract.DTO.Shared" minOccurs="0" name="Body" nillable="true" type="q3:ReceiptAdviceBody" />
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.Shared.ReceiptAdvice" minOccurs="0" name="Header" nillable="true" type="q4:IncomingReceiptAdviceHeader" />
+          <xs:element minOccurs="0" name="ViewContent" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="IncomingReceiptAdvice" nillable="true" type="tns:IncomingReceiptAdvice" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.DoReconciliation" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO.DoReconciliation" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" />
+      <xs:complexType name="DoReconciliationRequest">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" base="q1:RequestBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="ReconciliationDate" type="xs:dateTime" />
+              <xs:element minOccurs="0" name="ReconciliationStatus" type="xs:int" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="DoReconciliationRequest" nillable="true" type="tns:DoReconciliationRequest" />
+      <xs:complexType name="DoReconciliationResponse">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" base="q2:ResponseBase">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="DoReconciliationResponse" nillable="true" type="tns:DoReconciliationResponse" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.GetReconciliationDespatchDetail" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.GetReconciliationDespatchDetail" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" />
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xs:complexType name="GetReconciliationDespatchDetailRequest">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" base="q1:RequestBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="ReconciliationDate" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="GetReconciliationDespatchDetailRequest" nillable="true" type="tns:GetReconciliationDespatchDetailRequest" />
+      <xs:complexType name="GetReconciliationDespatchDetailResponse">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" base="q2:ResponseBase">
+            <xs:sequence>
+              <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DeliveredDespatchAdviceNumbers" nillable="true" type="q3:ArrayOfstring" />
+              <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DeliveredReceiptAdviceNumbers" nillable="true" type="q4:ArrayOfstring" />
+              <xs:element minOccurs="0" name="DespatchAdviceReconciliationDetail" nillable="true" type="tns:ArrayOfReconciliationDeliveryDespatchDetail" />
+              <xs:element minOccurs="0" name="ReceiptAdviceReconciliationDetail" nillable="true" type="tns:ArrayOfReconciliationDeliveryDespatchDetail" />
+              <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ReceivedDespatchAdviceNumbers" nillable="true" type="q5:ArrayOfstring" />
+              <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ReceivedReceiptAdviceNumbers" nillable="true" type="q6:ArrayOfstring" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="GetReconciliationDespatchDetailResponse" nillable="true" type="tns:GetReconciliationDespatchDetailResponse" />
+      <xs:complexType name="ArrayOfReconciliationDeliveryDespatchDetail">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ReconciliationDeliveryDespatchDetail" nillable="true" type="tns:ReconciliationDeliveryDespatchDetail" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfReconciliationDeliveryDespatchDetail" nillable="true" type="tns:ArrayOfReconciliationDeliveryDespatchDetail" />
+      <xs:complexType name="ReconciliationDeliveryDespatchDetail">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Count" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RequestNumber" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ReconciliationDeliveryDespatchDetail" nillable="true" type="tns:ReconciliationDeliveryDespatchDetail" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.ReconciliationInquiry" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.ReconciliationInquiry" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" />
+      <xs:complexType name="ReconciliationInquiryRequest">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" base="q1:RequestBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="ArchieveDespatchAdviceCount" type="xs:int" />
+              <xs:element minOccurs="0" name="ArchieveReceiptAdviceCount" type="xs:int" />
+              <xs:element minOccurs="0" name="ReceivedDespatchAdviceCount" type="xs:int" />
+              <xs:element minOccurs="0" name="ReceivedReceiptAdviceCount" type="xs:int" />
+              <xs:element minOccurs="0" name="ReconciliationDate" type="xs:dateTime" />
+              <xs:element minOccurs="0" name="SentDespatchAdviceCount" type="xs:int" />
+              <xs:element minOccurs="0" name="SentReceiptAdviceCount" type="xs:int" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="ReconciliationInquiryRequest" nillable="true" type="tns:ReconciliationInquiryRequest" />
+      <xs:complexType name="ReconciliationInquiryResponse">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" base="q2:ResponseBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="ArchieveDespatchAdviceCount" type="xs:int" />
+              <xs:element minOccurs="0" name="ArchieveReceiptAdviceCount" type="xs:int" />
+              <xs:element minOccurs="0" name="DeliveredDespatchAdviceCount" nillable="true" type="xs:int" />
+              <xs:element minOccurs="0" name="DeliveredReceiptAdviceCount" nillable="true" type="xs:int" />
+              <xs:element minOccurs="0" name="ReceivedDespatchAdviceCount" type="xs:int" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="ReconciliationInquiryResponse" nillable="true" type="tns:ReconciliationInquiryResponse" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.PreviewDespatchAdvices" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.PreviewDespatchAdvices" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.SendDespatchAdvices" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" />
+      <xs:complexType name="PreviewDespatchAdvicesRequest">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" base="q1:RequestBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="AcceptanceDateTime" type="xs:dateTime" />
+              <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.SendDespatchAdvices" minOccurs="0" name="DespatchAdvices" nillable="true" type="q2:OutgoingDespatchAdvices" />
+              <xs:element minOccurs="0" name="ViewContentType" type="xs:int" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="PreviewDespatchAdvicesRequest" nillable="true" type="tns:PreviewDespatchAdvicesRequest" />
+      <xs:complexType name="PreviewDespatchAdvicesResponse">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" base="q3:ResponseBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="ViewContent" nillable="true" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="PreviewDespatchAdvicesResponse" nillable="true" type="tns:PreviewDespatchAdvicesResponse" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.PreviewReceiptAdvices" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.PreviewReceiptAdvices" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.SendReceiptAdvice" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" />
+      <xs:complexType name="PreviewReceiptAdvicesRequest">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" base="q1:RequestBase">
+            <xs:sequence>
+              <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.SendReceiptAdvice" minOccurs="0" name="ReceiptAdvices" nillable="true" type="q2:ReceiptAdvice" />
+              <xs:element minOccurs="0" name="ViewContentType" type="xs:int" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="PreviewReceiptAdvicesRequest" nillable="true" type="tns:PreviewReceiptAdvicesRequest" />
+      <xs:complexType name="PreviewReceiptAdvicesResponse">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" base="q3:ResponseBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="ViewContent" nillable="true" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="PreviewReceiptAdvicesResponse" nillable="true" type="tns:PreviewReceiptAdvicesResponse" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.PreviewDespatcAdvicesRaw" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.PreviewDespatcAdvicesRaw" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" />
+      <xs:complexType name="PreviewDespatchAdviceRawRequest">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" base="q1:RequestBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="ViewContentType" type="xs:int" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="PreviewDespatchAdviceRawRequest" nillable="true" type="tns:PreviewDespatchAdviceRawRequest" />
+      <xs:complexType name="PreviewDespatchAdivesRawResponse">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" base="q2:ResponseBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="ViewContent" nillable="true" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="PreviewDespatchAdivesRawResponse" nillable="true" type="tns:PreviewDespatchAdivesRawResponse" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.PreviewReceiptAdviceRaw" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.PreviewReceiptAdviceRaw" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" />
+      <xs:complexType name="PreviewReceiptAdviceRawRequest">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" base="q1:RequestBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="ViewContentType" type="xs:int" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="PreviewReceiptAdviceRawRequest" nillable="true" type="tns:PreviewReceiptAdviceRawRequest" />
+      <xs:complexType name="PreviewReceiptAdviceRawResponse">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" base="q2:ResponseBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="ViewContent" nillable="true" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="PreviewReceiptAdviceRawResponse" nillable="true" type="tns:PreviewReceiptAdviceRawResponse" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.ApproveDraft" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PayFlex.E.EIrsaliye.ClientInterface.Contract.DTO.ApproveDraft" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" />
+      <xs:complexType name="ApproveDraftRequest">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" base="q1:RequestBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="ReferenceNumber" type="xs:long" />
+              <xs:element minOccurs="0" name="TrackNumber" nillable="true" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="ApproveDraftRequest" nillable="true" type="tns:ApproveDraftRequest" />
+      <xs:complexType name="ApproveDraftResponse">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/PayFlex.EFatura.ClientInterface.Contract.DTO" base="q2:ResponseBase">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="ApproveDraftResponse" nillable="true" type="tns:ApproveDraftResponse" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_Ping_InputMessage">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_Ping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_SendDespatchAdvices_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendDespatchAdvices" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_SendDespatchAdvices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendDespatchAdvicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_GetDespatchAdvices_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDespatchAdvices" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_GetDespatchAdvices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDespatchAdvicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_GetDespatchCustomers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDespatchCustomers" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_GetDespatchCustomers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDespatchCustomersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_DespatchCustomerInquiry_InputMessage">
+    <wsdl:part name="parameters" element="tns:DespatchCustomerInquiry" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_DespatchCustomerInquiry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DespatchCustomerInquiryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_SendReceiptAdvice_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendReceiptAdvice" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_SendReceiptAdvice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendReceiptAdviceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_SendReceiptAdvices_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendReceiptAdvices" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_SendReceiptAdvices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendReceiptAdvicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_DespatchAdviceInquiry_InputMessage">
+    <wsdl:part name="parameters" element="tns:DespatchAdviceInquiry" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_DespatchAdviceInquiry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DespatchAdviceInquiryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_ReceiptAdviceInquiry_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReceiptAdviceInquiry" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_ReceiptAdviceInquiry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReceiptAdviceInquiryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_DownloadDespatchReceipt_InputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadDespatchReceipt" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_DownloadDespatchReceipt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadDespatchReceiptResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_GetDespatchAdviceRaw_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDespatchAdviceRaw" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_GetDespatchAdviceRaw_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDespatchAdviceRawResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_GetDespatchAdvicesRaw_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDespatchAdvicesRaw" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_GetDespatchAdvicesRaw_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDespatchAdvicesRawResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_GetReceiptAdviceRaw_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReceiptAdviceRaw" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_GetReceiptAdviceRaw_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReceiptAdviceRawResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_GetReceiptAdvicesRaw_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReceiptAdvicesRaw" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_GetReceiptAdvicesRaw_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReceiptAdvicesRawResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_GetReceiptAdvice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReceiptAdvice" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_GetReceiptAdvice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReceiptAdviceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_GetReceiptAdvices_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReceiptAdvices" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_GetReceiptAdvices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReceiptAdvicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_DoReconciliationDespatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:DoReconciliationDespatch" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_DoReconciliationDespatch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DoReconciliationDespatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_GetReconciliationDespatchDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReconciliationDespatchDetail" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_GetReconciliationDespatchDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReconciliationDespatchDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_ReconciliationDespatchInquiry_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReconciliationDespatchInquiry" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_ReconciliationDespatchInquiry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReconciliationDespatchInquiryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_PreviewDespatchAdvices_InputMessage">
+    <wsdl:part name="parameters" element="tns:PreviewDespatchAdvices" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_PreviewDespatchAdvices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PreviewDespatchAdvicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_PreviewReceiptAdvices_InputMessage">
+    <wsdl:part name="parameters" element="tns:PreviewReceiptAdvices" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_PreviewReceiptAdvices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PreviewReceiptAdvicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_PreviewDespatchAdviceRaw_InputMessage">
+    <wsdl:part name="parameters" element="tns:PreviewDespatchAdviceRaw" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_PreviewDespatchAdviceRaw_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PreviewDespatchAdviceRawResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_PreviewReceiptAdviceRaw_InputMessage">
+    <wsdl:part name="parameters" element="tns:PreviewReceiptAdviceRaw" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_PreviewReceiptAdviceRaw_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PreviewReceiptAdviceRawResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_ApproveDraftDespatchAdvice_InputMessage">
+    <wsdl:part name="parameters" element="tns:ApproveDraftDespatchAdvice" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_ApproveDraftDespatchAdvice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ApproveDraftDespatchAdviceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_ApproveDraftReceiptAdvice_InputMessage">
+    <wsdl:part name="parameters" element="tns:ApproveDraftReceiptAdvice" />
+  </wsdl:message>
+  <wsdl:message name="IEIrsaliyeClientInterfaceService_ApproveDraftReceiptAdvice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ApproveDraftReceiptAdviceResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IEIrsaliyeClientInterfaceService">
+    <wsdl:operation name="Ping">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/Ping" message="tns:IEIrsaliyeClientInterfaceService_Ping_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/PingResponse" message="tns:IEIrsaliyeClientInterfaceService_Ping_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendDespatchAdvices">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/SendDespatchAdvices" message="tns:IEIrsaliyeClientInterfaceService_SendDespatchAdvices_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/SendDespatchAdvicesResponse" message="tns:IEIrsaliyeClientInterfaceService_SendDespatchAdvices_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDespatchAdvices">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/GetDespatchAdvices" message="tns:IEIrsaliyeClientInterfaceService_GetDespatchAdvices_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/GetDespatchAdvicesResponse" message="tns:IEIrsaliyeClientInterfaceService_GetDespatchAdvices_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDespatchCustomers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/GetDespatchCustomers" message="tns:IEIrsaliyeClientInterfaceService_GetDespatchCustomers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/GetDespatchCustomersResponse" message="tns:IEIrsaliyeClientInterfaceService_GetDespatchCustomers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DespatchCustomerInquiry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/DespatchCustomerInquiry" message="tns:IEIrsaliyeClientInterfaceService_DespatchCustomerInquiry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/DespatchCustomerInquiryResponse" message="tns:IEIrsaliyeClientInterfaceService_DespatchCustomerInquiry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendReceiptAdvice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/SendReceiptAdvice" message="tns:IEIrsaliyeClientInterfaceService_SendReceiptAdvice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/SendReceiptAdviceResponse" message="tns:IEIrsaliyeClientInterfaceService_SendReceiptAdvice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendReceiptAdvices">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/SendReceiptAdvices" message="tns:IEIrsaliyeClientInterfaceService_SendReceiptAdvices_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/SendReceiptAdvicesResponse" message="tns:IEIrsaliyeClientInterfaceService_SendReceiptAdvices_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DespatchAdviceInquiry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/DespatchAdviceInquiry" message="tns:IEIrsaliyeClientInterfaceService_DespatchAdviceInquiry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/DespatchAdviceInquiryResponse" message="tns:IEIrsaliyeClientInterfaceService_DespatchAdviceInquiry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiptAdviceInquiry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/ReceiptAdviceInquiry" message="tns:IEIrsaliyeClientInterfaceService_ReceiptAdviceInquiry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/ReceiptAdviceInquiryResponse" message="tns:IEIrsaliyeClientInterfaceService_ReceiptAdviceInquiry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadDespatchReceipt">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/DownloadDespatchReceipt" message="tns:IEIrsaliyeClientInterfaceService_DownloadDespatchReceipt_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/DownloadDespatchReceiptResponse" message="tns:IEIrsaliyeClientInterfaceService_DownloadDespatchReceipt_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDespatchAdviceRaw">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/GetDespatchAdviceRaw" message="tns:IEIrsaliyeClientInterfaceService_GetDespatchAdviceRaw_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/GetDespatchAdviceRawResponse" message="tns:IEIrsaliyeClientInterfaceService_GetDespatchAdviceRaw_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDespatchAdvicesRaw">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/GetDespatchAdvicesRaw" message="tns:IEIrsaliyeClientInterfaceService_GetDespatchAdvicesRaw_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/GetDespatchAdvicesRawResponse" message="tns:IEIrsaliyeClientInterfaceService_GetDespatchAdvicesRaw_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReceiptAdviceRaw">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/GetReceiptAdviceRaw" message="tns:IEIrsaliyeClientInterfaceService_GetReceiptAdviceRaw_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/GetReceiptAdviceRawResponse" message="tns:IEIrsaliyeClientInterfaceService_GetReceiptAdviceRaw_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReceiptAdvicesRaw">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/GetReceiptAdvicesRaw" message="tns:IEIrsaliyeClientInterfaceService_GetReceiptAdvicesRaw_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/GetReceiptAdvicesRawResponse" message="tns:IEIrsaliyeClientInterfaceService_GetReceiptAdvicesRaw_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReceiptAdvice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/GetReceiptAdvice" message="tns:IEIrsaliyeClientInterfaceService_GetReceiptAdvice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/GetReceiptAdviceResponse" message="tns:IEIrsaliyeClientInterfaceService_GetReceiptAdvice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReceiptAdvices">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/GetReceiptAdvices" message="tns:IEIrsaliyeClientInterfaceService_GetReceiptAdvices_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/GetReceiptAdvicesResponse" message="tns:IEIrsaliyeClientInterfaceService_GetReceiptAdvices_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DoReconciliationDespatch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/DoReconciliationDespatch" message="tns:IEIrsaliyeClientInterfaceService_DoReconciliationDespatch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/DoReconciliationDespatchResponse" message="tns:IEIrsaliyeClientInterfaceService_DoReconciliationDespatch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReconciliationDespatchDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/GetReconciliationDespatchDetail" message="tns:IEIrsaliyeClientInterfaceService_GetReconciliationDespatchDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/GetReconciliationDespatchDetailResponse" message="tns:IEIrsaliyeClientInterfaceService_GetReconciliationDespatchDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReconciliationDespatchInquiry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/ReconciliationDespatchInquiry" message="tns:IEIrsaliyeClientInterfaceService_ReconciliationDespatchInquiry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/ReconciliationDespatchInquiryResponse" message="tns:IEIrsaliyeClientInterfaceService_ReconciliationDespatchInquiry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PreviewDespatchAdvices">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/PreviewDespatchAdvices" message="tns:IEIrsaliyeClientInterfaceService_PreviewDespatchAdvices_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/PreviewDespatchAdvicesResponse" message="tns:IEIrsaliyeClientInterfaceService_PreviewDespatchAdvices_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PreviewReceiptAdvices">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/PreviewReceiptAdvices" message="tns:IEIrsaliyeClientInterfaceService_PreviewReceiptAdvices_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/PreviewReceiptAdvicesResponse" message="tns:IEIrsaliyeClientInterfaceService_PreviewReceiptAdvices_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PreviewDespatchAdviceRaw">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/PreviewDespatchAdviceRaw" message="tns:IEIrsaliyeClientInterfaceService_PreviewDespatchAdviceRaw_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/PreviewDespatchAdviceRawResponse" message="tns:IEIrsaliyeClientInterfaceService_PreviewDespatchAdviceRaw_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PreviewReceiptAdviceRaw">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/PreviewReceiptAdviceRaw" message="tns:IEIrsaliyeClientInterfaceService_PreviewReceiptAdviceRaw_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/PreviewReceiptAdviceRawResponse" message="tns:IEIrsaliyeClientInterfaceService_PreviewReceiptAdviceRaw_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ApproveDraftDespatchAdvice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/ApproveDraftDespatchAdvice" message="tns:IEIrsaliyeClientInterfaceService_ApproveDraftDespatchAdvice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/ApproveDraftDespatchAdviceResponse" message="tns:IEIrsaliyeClientInterfaceService_ApproveDraftDespatchAdvice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ApproveDraftReceiptAdvice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/ApproveDraftReceiptAdvice" message="tns:IEIrsaliyeClientInterfaceService_ApproveDraftReceiptAdvice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEIrsaliyeClientInterfaceService/ApproveDraftReceiptAdviceResponse" message="tns:IEIrsaliyeClientInterfaceService_ApproveDraftReceiptAdvice_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IEIrsaliyeClientInterfaceService" type="tns:IEIrsaliyeClientInterfaceService">
+    <wsp:PolicyReference URI="#BasicHttpBinding_IEIrsaliyeClientInterfaceService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Ping">
+      <soap:operation soapAction="http://tempuri.org/IEIrsaliyeClientInterfaceService/Ping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendDespatchAdvices">
+      <soap:operation soapAction="http://tempuri.org/IEIrsaliyeClientInterfaceService/SendDespatchAdvices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDespatchAdvices">
+      <soap:operation soapAction="http://tempuri.org/IEIrsaliyeClientInterfaceService/GetDespatchAdvices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDespatchCustomers">
+      <soap:operation soapAction="http://tempuri.org/IEIrsaliyeClientInterfaceService/GetDespatchCustomers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DespatchCustomerInquiry">
+      <soap:operation soapAction="http://tempuri.org/IEIrsaliyeClientInterfaceService/DespatchCustomerInquiry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendReceiptAdvice">
+      <soap:operation soapAction="http://tempuri.org/IEIrsaliyeClientInterfaceService/SendReceiptAdvice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendReceiptAdvices">
+      <soap:operation soapAction="http://tempuri.org/IEIrsaliyeClientInterfaceService/SendReceiptAdvices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DespatchAdviceInquiry">
+      <soap:operation soapAction="http://tempuri.org/IEIrsaliyeClientInterfaceService/DespatchAdviceInquiry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiptAdviceInquiry">
+      <soap:operation soapAction="http://tempuri.org/IEIrsaliyeClientInterfaceService/ReceiptAdviceInquiry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadDespatchReceipt">
+      <soap:operation soapAction="http://tempuri.org/IEIrsaliyeClientInterfaceService/DownloadDespatchReceipt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDespatchAdviceRaw">
+      <soap:operation soapAction="http://tempuri.org/IEIrsaliyeClientInterfaceService/GetDespatchAdviceRaw" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDespatchAdvicesRaw">
+      <soap:operation soapAction="http://tempuri.org/IEIrsaliyeClientInterfaceService/GetDespatchAdvicesRaw" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReceiptAdviceRaw">
+      <soap:operation soapAction="http://tempuri.org/IEIrsaliyeClientInterfaceService/GetReceiptAdviceRaw" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReceiptAdvicesRaw">
+      <soap:operation soapAction="http://tempuri.org/IEIrsaliyeClientInterfaceService/GetReceiptAdvicesRaw" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReceiptAdvice">
+      <soap:operation soapAction="http://tempuri.org/IEIrsaliyeClientInterfaceService/GetReceiptAdvice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReceiptAdvices">
+      <soap:operation soapAction="http://tempuri.org/IEIrsaliyeClientInterfaceService/GetReceiptAdvices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DoReconciliationDespatch">
+      <soap:operation soapAction="http://tempuri.org/IEIrsaliyeClientInterfaceService/DoReconciliationDespatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReconciliationDespatchDetail">
+      <soap:operation soapAction="http://tempuri.org/IEIrsaliyeClientInterfaceService/GetReconciliationDespatchDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReconciliationDespatchInquiry">
+      <soap:operation soapAction="http://tempuri.org/IEIrsaliyeClientInterfaceService/ReconciliationDespatchInquiry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PreviewDespatchAdvices">
+      <soap:operation soapAction="http://tempuri.org/IEIrsaliyeClientInterfaceService/PreviewDespatchAdvices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PreviewReceiptAdvices">
+      <soap:operation soapAction="http://tempuri.org/IEIrsaliyeClientInterfaceService/PreviewReceiptAdvices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PreviewDespatchAdviceRaw">
+      <soap:operation soapAction="http://tempuri.org/IEIrsaliyeClientInterfaceService/PreviewDespatchAdviceRaw" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PreviewReceiptAdviceRaw">
+      <soap:operation soapAction="http://tempuri.org/IEIrsaliyeClientInterfaceService/PreviewReceiptAdviceRaw" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApproveDraftDespatchAdvice">
+      <soap:operation soapAction="http://tempuri.org/IEIrsaliyeClientInterfaceService/ApproveDraftDespatchAdvice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApproveDraftReceiptAdvice">
+      <soap:operation soapAction="http://tempuri.org/IEIrsaliyeClientInterfaceService/ApproveDraftReceiptAdvice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EIrsaliyeClientInterfaceService">
+    <wsdl:port name="BasicHttpBinding_IEIrsaliyeClientInterfaceService" binding="tns:BasicHttpBinding_IEIrsaliyeClientInterfaceService">
+      <soap:address location="https://efaturatest.innova.com.tr/EIrsaliyeClientInterfaceService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
